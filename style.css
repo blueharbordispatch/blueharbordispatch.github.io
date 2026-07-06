@@ -171,6 +171,15 @@ color:var(--primary);
 font-family:'Poppins',sans-serif;
 
 }
+.logo img{
+
+height:60px;
+
+width:auto;
+
+display:block;
+
+}
 
 .nav-links{
 
