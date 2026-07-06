@@ -207,7 +207,9 @@ color:var(--secondary);
 
 .hero{
 
-height:100vh;
+min-height:100vh;
+
+padding:120px 0 80px;
 
 display:flex;
 
