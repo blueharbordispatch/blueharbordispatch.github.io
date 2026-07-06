@@ -206,7 +206,7 @@ align-items:center;
 
 position:relative;
 
-background:url("images/hero.jpg") center center/cover no-repeat;
+background:url("images/hero-banner.png") center center/cover no-repeat;
 
 }
 
@@ -838,6 +838,75 @@ padding:70px 0;
 .contact h2{
 
 font-size:34px;
+
+}
+
+}
+/* ===========================
+   ABOUT SECTION
+=========================== */
+
+.about-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+.about-image img{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+display:block;
+
+}
+
+.about-text p{
+
+margin-bottom:20px;
+
+}
+
+.about-list{
+
+margin-top:25px;
+
+display:grid;
+
+gap:15px;
+
+}
+
+.about-list li{
+
+font-size:17px;
+
+font-weight:500;
+
+color:var(--dark);
+
+}
+
+@media(max-width:900px){
+
+.about-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.about-image{
+
+order:-1;
 
 }
 
