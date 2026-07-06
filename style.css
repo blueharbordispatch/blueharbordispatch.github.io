@@ -209,7 +209,7 @@ color:var(--secondary);
 
 min-height:100vh;
 
-padding:120px 0 80px;
+padding:120px 0 140px;
 
 display:flex;
 
@@ -232,45 +232,32 @@ background:rgba(7,26,63,.68);
 }
 
 .hero-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:760px;
-
-color:white;
-
+    max-width:620px;
+    margin-left:7%;
+    padding-top:40px;
+    z-index:2;
+    position:relative;
 }
 
 .hero h1{
-
-font-size:65px;
-
-line-height:1.15;
-
-margin-bottom:25px;
-
-font-weight:800;
-
+    font-size:72px;
+    line-height:1.05;
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:25px;
+    letter-spacing:-2px;
 }
 
 .hero h1 span{
-
-display:block;
-
-color:#8dc8ff;
-
+    color:#69B3FF;
+    display:block;
 }
-
 .hero p{
-
-font-size:20px;
-
-margin-bottom:40px;
-
-max-width:650px;
-
+    max-width:560px;
+    font-size:22px;
+    line-height:1.8;
+    color:rgba(255,255,255,.92);
+    margin-bottom:40px;
 }
 
 .hero-buttons{
