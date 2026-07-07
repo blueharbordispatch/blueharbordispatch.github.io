@@ -998,58 +998,42 @@ order:1;
 
 }
 
-.goal-card{
+.goal-statement{
 
-margin-top:35px;
+margin-top:50px;
 
-padding:28px 32px;
-
-background:#ffffff;
-
-border-left:5px solid var(--primary);
-
-border-radius:16px;
-
-box-shadow:0 12px 35px rgba(15,23,42,.08);
-
-max-width:430px;
+max-width:500px;
 
 }
 
-.goal-card h3{
+.goal-statement h3{
 
-font-size:22px;
+font-size:15px;
+
+font-weight:700;
 
 color:var(--primary);
 
-margin-bottom:12px;
+text-transform:uppercase;
+
+letter-spacing:2px;
+
+margin-bottom:18px;
 
 }
 
-.goal-card p{
+.goal-statement p{
 
-margin:0;
+font-size:34px;
 
-font-size:17px;
+font-weight:800;
 
-line-height:1.7;
-
-color:#5f6b7a;
-
-}
-
-.goal-card strong{
-
-display:block;
-
-margin-top:8px;
-
-font-size:22px;
-
-line-height:1.4;
+line-height:1.25;
 
 color:var(--dark);
 
-font-weight:700;
+margin:0;
+
+letter-spacing:-1px;
 
 }
