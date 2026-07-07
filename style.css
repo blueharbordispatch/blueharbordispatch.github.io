@@ -248,18 +248,20 @@ rgba(7,26,63,.10) 100%
 }
 
 .hero h1{
-    font-size:72px;
-    line-height:1.05;
+    font-size:60px;
+    line-height:1.08;
     font-weight:800;
     color:#ffffff;
-    margin-bottom:25px;
-    letter-spacing:-2px;
+    margin-bottom:20px;
+    letter-spacing:-1px;
+    max-width:700px;
 }
 
 .hero h1 span{
     color:#69B3FF;
     display:block;
 }
+
 .hero p{
     max-width:560px;
     font-size:22px;
