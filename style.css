@@ -207,15 +207,17 @@ color:var(--secondary);
 
 .hero{
 
-min-height:100vh;
+min-height:108vh;
 
-padding:120px 0 140px;
+padding:120px 0 120px;
 
 display:flex;
 
 align-items:center;
 
 position:relative;
+
+overflow:hidden;
 
 background:url("images/hero-banner.png") center center/cover no-repeat;
 
@@ -227,7 +229,13 @@ position:absolute;
 
 inset:0;
 
-background:rgba(7,26,63,.68);
+background:linear-gradient(
+90deg,
+rgba(7,26,63,.82) 0%,
+rgba(7,26,63,.68) 35%,
+rgba(7,26,63,.42) 65%,
+rgba(7,26,63,.10) 100%
+);
 
 }
 
