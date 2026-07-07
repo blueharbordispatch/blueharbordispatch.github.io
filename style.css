@@ -882,9 +882,9 @@ font-size:34px;
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:58% 42%;
 
-gap:80px;
+gap:70px;
 
 align-items:center;
 
@@ -893,6 +893,10 @@ align-items:center;
 .about-image img{
 
 width:100%;
+
+height:100%;
+
+object-fit:cover;
 
 border-radius:22px;
 
@@ -982,7 +986,13 @@ grid-template-columns:1fr;
 
 .about-image{
 
-order:-1;
+order:2;
+
+}
+
+.about-text{
+
+order:1;
 
 }
 
