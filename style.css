@@ -277,9 +277,9 @@ rgba(7,26,63,.10) 100%
 
 .trust-bar{
 
-background:white;
+background:#f8fafc;
 
-box-shadow:var(--shadow);
+padding:35px 0;
 
 }
 
@@ -289,19 +289,27 @@ display:grid;
 
 grid-template-columns:repeat(4,1fr);
 
-gap:25px;
+gap:22px;
+
+align-items:stretch;
 
 }
 
 .trust-card{
 
+background:#ffffff;
+
 text-align:center;
 
-padding:35px;
+padding:34px 28px;
 
-border-radius:15px;
+border-radius:18px;
 
-transition:.3s;
+border:1px solid #e8edf5;
+
+box-shadow:0 10px 30px rgba(15,23,42,.08);
+
+transition:all .3s ease;
 
 }
 
@@ -309,7 +317,9 @@ transition:.3s;
 
 transform:translateY(-8px);
 
-box-shadow:var(--shadow);
+box-shadow:0 20px 45px rgba(15,23,42,.16);
+
+border-color:#2f80ed;
 
 }
 
@@ -317,9 +327,26 @@ box-shadow:var(--shadow);
 
 color:var(--primary);
 
-font-size:30px;
+font-size:34px;
 
-margin-bottom:10px;
+font-weight:800;
+
+margin-bottom:12px;
+
+letter-spacing:-1px;
+
+}
+.trust-card p{
+
+font-size:16px;
+
+font-weight:500;
+
+line-height:1.6;
+
+color:#5f6b7a;
+
+margin:0;
 
 }
 /* ===========================
