@@ -264,9 +264,9 @@ rgba(7,26,63,.10) 100%
 .hero p{
     font-size:22px;
     line-height:1.75;
-    max-width:560px;
+    max-width:470px;
     color:rgba(255,255,255,.95);
-    margin-bottom:38px;
+    margin-bottom:46px;
 }
 
 .hero-buttons{
