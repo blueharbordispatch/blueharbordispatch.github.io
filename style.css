@@ -1147,11 +1147,7 @@ margin-bottom:18px;
 
 .service-content h3{
 
-font-size:36px;
-
-margin-bottom:20px;
-
-color:var(--dark);
+margin:0;
 
 }
 
@@ -1205,11 +1201,134 @@ box-shadow:0 30px 60px rgba(0,0,0,.14);
 
 .service-circle img{
 
-width:85%;
+width:92%;
 
 height:auto;
 
 transition:.35s;
+
+}
+/* ===== Service Name ===== */
+
+.service-name{
+
+font-size:32px;
+
+font-weight:700;
+
+color:var(--primary);
+
+margin-bottom:8px;
+
+letter-spacing:-.5px;
+
+line-height:1.2;
+
+}
+
+/* ===== Service Title ===== */
+
+.service-title{
+
+font-size:32px;
+
+font-weight:700;
+
+color:var(--dark);
+
+margin-bottom:24px;
+
+letter-spacing:-.5px;
+
+line-height:1.2;
+
+}
+
+/* ===== Glass Panel ===== */
+
+.service-glass{
+
+margin-top:10px;
+
+padding:24px 28px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.65);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border:1px solid rgba(220,230,245,.8);
+
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.service-glass p{
+
+margin:0;
+
+font-size:17px;
+
+line-height:1.8;
+
+color:#555;
+
+}
+
+.service-row:hover .service-glass{
+
+transform:translateY(-6px);
+
+background:rgba(255,255,255,.9);
+
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.service-row:hover .service-content{
+
+transform:translateX(6px);
+
+transition:.35s;
+
+}
+
+.service-row{
+
+position:relative;
+
+padding:45px 0;
+
+}
+
+.service-row::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:140px;
+
+height:1px;
+
+background:linear-gradient(to right,transparent,#d6dfea,transparent);
+
+}
+
+.service-row:last-child::after{
+
+display:none;
 
 }
 
