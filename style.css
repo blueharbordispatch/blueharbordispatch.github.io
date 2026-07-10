@@ -1212,15 +1212,15 @@ transition:.35s;
 
 .service-name{
 
-font-size:32px;
+font-size:26px;
 
 font-weight:700;
 
 color:var(--primary);
 
-margin-bottom:8px;
+margin-bottom:10px;
 
-letter-spacing:-.5px;
+letter-spacing:-.3px;
 
 line-height:1.2;
 
@@ -1230,20 +1230,19 @@ line-height:1.2;
 
 .service-title{
 
-font-size:32px;
+font-size:40px;
 
-font-weight:700;
+font-weight:800;
 
 color:var(--dark);
 
-margin-bottom:24px;
+margin-bottom:26px;
 
-letter-spacing:-.5px;
+letter-spacing:-1px;
 
-line-height:1.2;
+line-height:1.15;
 
 }
-
 /* ===== Glass Panel ===== */
 
 .service-glass{
@@ -1383,5 +1382,44 @@ transition:.3s;
 .included-grid div:hover{
 
 transform:translateY(-6px);
+
+}
+.services-heading{
+
+font-size:52px;
+
+font-weight:800;
+
+text-align:center;
+
+max-width:850px;
+
+margin:0 auto 90px;
+
+line-height:1.15;
+
+letter-spacing:-1px;
+
+color:var(--dark);
+
+position:relative;
+
+}
+
+.services-heading::after{
+
+content:"";
+
+display:block;
+
+width:90px;
+
+height:4px;
+
+margin:24px auto 0;
+
+border-radius:20px;
+
+background:linear-gradient(90deg,var(--primary),#5b9dff);
 
 }
