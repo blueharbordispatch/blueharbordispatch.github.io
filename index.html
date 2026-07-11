@@ -21,8 +21,9 @@
 
 <link rel="stylesheet" href="style.css">
 
-</head>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
+</head>
 <body>
 
 <header>
@@ -67,7 +68,7 @@ Free Consultation
 
 <div class="overlay"></div>
 
-<div class="container hero-content">
+<div class="container hero-content" data-aos="fade-right"></div>
 
 <h1>
 
@@ -812,6 +813,18 @@ Professional Truck Dispatch Solutions for Owner-Operators & Small Fleets Across 
 </footer>
 
 <script src="script.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 850,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 80,
+    mirror: false
+});
+</script>
 
 </body>
 
