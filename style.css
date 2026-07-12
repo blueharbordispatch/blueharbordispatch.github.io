@@ -1099,211 +1099,22 @@ transform:translateY(0);
 }
 
 }
-/* ===== SERVICES ===== */
+/*==================================================
+                    SERVICES
+==================================================*/
 
 .service-row{
 
 display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:70px;
+grid-template-columns:minmax(0,1fr) minmax(0,1fr);
 
 align-items:center;
 
-margin:100px 0;
+gap:90px;
 
-}
-
-.service-row.reverse .service-image{
-
-order:-1;
-
-}
-
-.service-content{
-
-max-width:520px;
-
-}
-
-.service-tag{
-
-display:inline-block;
-
-padding:8px 18px;
-
-background:#eef5ff;
-
-color:var(--primary);
-
-border-radius:30px;
-
-font-size:14px;
-
-font-weight:600;
-
-margin-bottom:18px;
-
-}
-
-.service-content h3{
-
-margin:0;
-
-}
-
-.service-content p{
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#555;
-
-}
-
-.service-image{
-
-display:flex;
-
-justify-content:center;
-
-}
-
-.service-circle{
-
-width:420px;
-
-height:420px;
-
-border-radius:50%;
-
-background:#f7f9fc;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-transition:.35s;
-
-}
-
-.service-circle:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 30px 60px rgba(0,0,0,.14);
-
-}
-
-.service-circle img{
-
-width:92%;
-
-height:auto;
-
-transition:.35s;
-
-}
-/* ===== Service Name ===== */
-
-.service-name{
-
-font-size:26px;
-
-font-weight:700;
-
-color:var(--primary);
-
-margin-bottom:10px;
-
-letter-spacing:-.3px;
-
-line-height:1.2;
-
-}
-
-/* ===== Service Title ===== */
-
-.service-title{
-
-font-size:40px;
-
-font-weight:800;
-
-color:var(--dark);
-
-margin-bottom:26px;
-
-letter-spacing:-1px;
-
-line-height:1.15;
-
-}
-/* ===== Glass Panel ===== */
-
-.service-glass{
-
-margin-top:10px;
-
-padding:24px 28px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,.65);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border:1px solid rgba(220,230,245,.8);
-
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-transition:.35s;
-
-}
-
-.service-glass p{
-
-margin:0;
-
-font-size:17px;
-
-line-height:1.8;
-
-color:#555;
-
-}
-
-.service-row:hover .service-glass{
-
-transform:translateY(-6px);
-
-background:rgba(255,255,255,.9);
-
-box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.service-row:hover .service-content{
-
-transform:translateX(6px);
-
-transition:.35s;
-
-}
-
-.service-row{
+padding:70px 0;
 
 position:relative;
-
-padding:45px 0;
 
 }
 
@@ -1313,9 +1124,9 @@ content:"";
 
 position:absolute;
 
-bottom:-30px;
-
 left:50%;
+
+bottom:0;
 
 transform:translateX(-50%);
 
@@ -1323,7 +1134,12 @@ width:140px;
 
 height:1px;
 
-background:linear-gradient(to right,transparent,#d6dfea,transparent);
+background:linear-gradient(
+90deg,
+transparent,
+rgba(11,61,145,.15),
+transparent
+);
 
 }
 
@@ -1333,75 +1149,222 @@ display:none;
 
 }
 
-.service-circle:hover img{
+/* Reverse Layout */
+
+.service-row.reverse .service-content{
+
+order:2;
+
+}
+
+.service-row.reverse .service-image{
+
+order:1;
+
+}
+
+/*=========================================
+             SERVICE CONTENT
+=========================================*/
+
+.service-content{
+
+width:100%;
+
+max-width:560px;
+
+transition:transform .35s ease;
+
+}
+
+.service-row:hover .service-content{
+
+transform:translateY(-4px);
+
+}
+
+.service-name{
+
+font-size:26px;
+
+font-weight:700;
+
+margin:0 0 12px;
+
+color:var(--primary);
+
+letter-spacing:-.3px;
+
+}
+
+.service-title{
+
+font-size:42px;
+
+font-weight:800;
+
+line-height:1.12;
+
+letter-spacing:-1.2px;
+
+margin:0 0 28px;
+
+color:var(--dark);
+
+}
+
+/*=========================================
+               GLASS CARD
+=========================================*/
+
+.service-glass{
+
+padding:28px 30px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.72);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(220,230,245,.9);
+
+box-shadow:
+
+0 10px 30px rgba(15,23,42,.05),
+
+0 20px 60px rgba(15,23,42,.04);
+
+transition:all .35s ease;
+
+}
+
+.service-glass p{
+
+margin:0;
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#5d6674;
+
+}
+
+.service-row:hover .service-glass{
+
+transform:translateY(-8px);
+
+background:rgba(255,255,255,.92);
+
+box-shadow:
+
+0 18px 45px rgba(15,23,42,.10),
+
+0 28px 70px rgba(15,23,42,.08);
+
+}
+
+/*=========================================
+                IMAGE
+=========================================*/
+
+.service-image{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.service-circle{
+
+width:430px;
+
+height:430px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+background:
+
+radial-gradient(circle at top,#ffffff,#f5f8fd);
+
+border:1px solid rgba(220,230,245,.8);
+
+box-shadow:
+
+0 25px 70px rgba(15,23,42,.08);
+
+transition:
+
+transform .45s ease,
+
+box-shadow .45s ease;
+
+}
+
+.service-circle img{
+
+width:92%;
+
+height:auto;
+
+transition:transform .45s ease;
+
+}
+
+.service-row:hover .service-circle{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 35px 80px rgba(15,23,42,.13);
+
+}
+
+.service-row:hover .service-circle img{
 
 transform:scale(1.05);
 
 }
-
-/* Included Services */
+/*==================================================
+            INCLUDED SERVICES
+==================================================*/
 
 .included-services{
 
-margin-top:120px;
+margin-top:140px;
 
 text-align:center;
+
+padding-top:30px;
 
 }
 
 .included-services h2{
 
-margin-bottom:45px;
-
-}
-
-.included-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:25px;
-
-}
-
-.included-grid div{
-
-padding:22px;
-
-background:#fff;
-
-border-radius:15px;
-
-box-shadow:var(--shadow);
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-.included-grid div:hover{
-
-transform:translateY(-6px);
-
-}
-
-.services-heading{
-
-font-size:52px;
+font-size:44px;
 
 font-weight:800;
-
-text-align:center;
-
-max-width:850px;
-
-margin:0 auto 90px;
 
 line-height:1.15;
 
 letter-spacing:-1px;
+
+margin-bottom:60px;
 
 background:linear-gradient(135deg,#0B3D91 0%,#2563EB 100%);
 -webkit-background-clip:text;
@@ -1411,6 +1374,86 @@ background-clip:text;
 display:inline-block;
 width:100%;
 
+}
+
+.included-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,minmax(220px,1fr));
+
+gap:28px;
+
+}
+
+.included-grid div{
+
+padding:26px 24px;
+
+border-radius:18px;
+
+background:#ffffff;
+
+border:1px solid rgba(220,230,245,.9);
+
+box-shadow:
+
+0 10px 30px rgba(15,23,42,.05);
+
+font-size:17px;
+
+font-weight:600;
+
+color:var(--dark);
+
+transition:all .35s ease;
+
+cursor:default;
+
+}
+
+.included-grid div:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 20px 50px rgba(15,23,42,.10);
+
+border-color:#2563EB22;
+
+}
+
+/*==================================================
+              SERVICES HEADING
+==================================================*/
+
+.services-heading{
+
+font-size:56px;
+
+font-weight:800;
+
+text-align:center;
+
+max-width:900px;
+
+margin:0 auto 110px;
+
+line-height:1.1;
+
+letter-spacing:-1.5px;
+
+background:linear-gradient(135deg,#0B3D91,#2563EB);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
+display:block;
+
 position:relative;
 
 }
@@ -1419,17 +1462,143 @@ position:relative;
 
 content:"";
 
+width:95px;
+
+height:5px;
+
+border-radius:30px;
+
+margin:28px auto 0;
+
 display:block;
 
-width:90px;
+background:linear-gradient(90deg,#0B3D91,#2563EB);
 
-height:4px;
+}
 
-margin:24px auto 0;
+/*==================================================
+              RESPONSIVE
+==================================================*/
 
-border-radius:20px;
+@media (max-width:1100px){
 
-background:linear-gradient(90deg,var(--primary),#5b9dff);
+.service-row{
+
+gap:50px;
+
+}
+
+.service-circle{
+
+width:360px;
+
+height:360px;
+
+}
+
+.service-title{
+
+font-size:34px;
+
+}
+
+}
+
+@media (max-width:900px){
+
+.service-row{
+
+grid-template-columns:1fr;
+
+gap:50px;
+
+text-align:center;
+
+}
+
+.service-row.reverse .service-content,
+
+.service-row.reverse .service-image{
+
+order:unset;
+
+}
+
+.service-content{
+
+max-width:100%;
+
+}
+
+.service-image{
+
+margin-top:10px;
+
+}
+
+.service-circle{
+
+width:320px;
+
+height:320px;
+
+}
+
+.included-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media (max-width:650px){
+
+.services-heading{
+
+font-size:40px;
+
+margin-bottom:70px;
+
+}
+
+.service-name{
+
+font-size:22px;
+
+}
+
+.service-title{
+
+font-size:30px;
+
+}
+
+.service-glass{
+
+padding:22px;
+
+}
+
+.service-circle{
+
+width:270px;
+
+height:270px;
+
+}
+
+.included-services h2{
+
+font-size:34px;
+
+}
+
+.included-grid{
+
+grid-template-columns:1fr;
+
+}
 
 }
 /* ================= WHY CHOOSE US ================= */
