@@ -1386,6 +1386,7 @@ transition:.3s;
 transform:translateY(-6px);
 
 }
+
 .services-heading{
 
 font-size:52px;
@@ -1402,7 +1403,13 @@ line-height:1.15;
 
 letter-spacing:-1px;
 
-color:var(--dark);
+background:linear-gradient(135deg,#0B3D91 0%,#2563EB 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+
+display:inline-block;
+width:100%;
 
 position:relative;
 
@@ -1435,11 +1442,17 @@ font-weight:800;
 
 text-align:center;
 
-color:var(--dark);
-
 letter-spacing:-1px;
 
 margin-bottom:20px;
+
+background:linear-gradient(135deg,#0B3D91 0%,#2563EB 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+
+display:inline-block;
+width:100%;
 
 }
 
