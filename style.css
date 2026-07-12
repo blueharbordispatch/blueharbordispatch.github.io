@@ -1601,45 +1601,88 @@ grid-template-columns:1fr;
 }
 
 }
-/* ================= WHY CHOOSE US ================= */
+
+/*==================================================
+                WHY CHOOSE US
+==================================================*/
+
+.why-us{
+
+padding:150px 0;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/*================ Heading ================*/
 
 .why-heading{
 
-font-size:54px;
+font-size:58px;
 
 font-weight:800;
 
 text-align:center;
 
-letter-spacing:-1px;
+line-height:1.08;
 
-margin-bottom:20px;
+letter-spacing:-1.6px;
 
-background:linear-gradient(135deg,#0B3D91 0%,#2563EB 100%);
+margin-bottom:24px;
+
+background:linear-gradient(135deg,#0B3D91,#2563EB);
+
 -webkit-background-clip:text;
+
 -webkit-text-fill-color:transparent;
+
 background-clip:text;
 
-display:inline-block;
-width:100%;
+display:block;
+
+position:relative;
 
 }
 
+.why-heading::after{
+
+content:"";
+
+display:block;
+
+width:100px;
+
+height:5px;
+
+margin:30px auto 0;
+
+border-radius:999px;
+
+background:linear-gradient(90deg,#0B3D91,#2563EB);
+
+}
+
+/*================ Subtitle ================*/
+
 .why-subtitle{
 
-max-width:760px;
+max-width:770px;
 
-margin:0 auto 70px;
+margin:0 auto 90px;
 
 text-align:center;
 
 font-size:19px;
 
-line-height:1.8;
+line-height:1.9;
 
-color:#666;
+color:#5d6674;
 
 }
+
+/*================ Illustration ================*/
 
 .why-image{
 
@@ -1647,7 +1690,9 @@ display:flex;
 
 justify-content:center;
 
-margin-bottom:80px;
+align-items:center;
+
+margin-bottom:100px;
 
 }
 
@@ -1655,79 +1700,317 @@ margin-bottom:80px;
 
 width:100%;
 
-max-width:900px;
+max-width:920px;
 
 height:auto;
 
-transition:.4s;
+transition:
+
+transform .55s ease,
+
+filter .55s ease,
+
+box-shadow .55s ease;
 
 }
 
 .why-image:hover img{
 
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
 
 }
+
+/*================ Cards Grid ================*/
 
 .advantage-grid{
 
 display:grid;
 
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,minmax(0,1fr));
 
-gap:35px;
+gap:34px;
 
 }
 
+/*================ Card ================*/
+
 .advantage-card{
 
-padding:35px;
+position:relative;
 
-border-radius:22px;
+padding:40px;
 
-background:rgba(255,255,255,.72);
+border-radius:24px;
 
-backdrop-filter:blur(14px);
+background:rgba(255,255,255,.80);
 
--webkit-backdrop-filter:blur(14px);
+backdrop-filter:blur(18px);
 
-border:1px solid rgba(220,230,245,.8);
+-webkit-backdrop-filter:blur(18px);
 
-box-shadow:0 12px 35px rgba(0,0,0,.08);
+border:1px solid rgba(225,233,245,.9);
 
-transition:.35s;
+box-shadow:
+
+0 12px 30px rgba(15,23,42,.05),
+
+0 25px 60px rgba(15,23,42,.04);
+
+overflow:hidden;
+
+transition:
+
+transform .35s ease,
+
+box-shadow .35s ease,
+
+border-color .35s ease;
+
+}
+
+/* Animated top accent */
+
+.advantage-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:4px;
+
+background:linear-gradient(90deg,#0B3D91,#2563EB);
+
+transform:scaleX(0);
+
+transform-origin:left;
+
+transition:.35s ease;
+
+}
+
+.advantage-card:hover::before{
+
+transform:scaleX(1);
 
 }
 
 .advantage-card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px);
 
-box-shadow:0 20px 50px rgba(0,0,0,.12);
+border-color:rgba(37,99,235,.28);
+
+box-shadow:
+
+0 22px 50px rgba(15,23,42,.10),
+
+0 35px 75px rgba(15,23,42,.08);
 
 }
+/*================ Card Typography ================*/
 
 .advantage-card h3{
 
-font-size:28px;
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:-.5px;
+
+line-height:1.2;
+
+margin:0 0 18px;
+
+color:var(--dark);
+
+transition:color .35s ease;
+
+}
+
+.advantage-card:hover h3{
 
 color:var(--primary);
-
-margin-bottom:18px;
 
 }
 
 .advantage-card p{
 
+margin:0;
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#5d6674;
+
+}
+
+/*================ Decorative Background ================*/
+
+.why-us::before{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+
+height:650px;
+
+top:-220px;
+
+right:-260px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(37,99,235,.08),
+transparent 70%);
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+.why-us::after{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+bottom:-180px;
+
+left:-180px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(11,61,145,.05),
+transparent 70%);
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+/*================ Responsive ================*/
+
+@media (max-width:1100px){
+
+.why-heading{
+
+font-size:50px;
+
+}
+
+.advantage-grid{
+
+gap:28px;
+
+}
+
+.advantage-card{
+
+padding:34px;
+
+}
+
+}
+
+@media (max-width:900px){
+
+.why-us{
+
+padding:110px 0;
+
+}
+
+.why-heading{
+
+font-size:42px;
+
+}
+
+.why-subtitle{
+
+margin-bottom:60px;
+
+}
+
+.why-image{
+
+margin-bottom:70px;
+
+}
+
+.advantage-grid{
+
+grid-template-columns:1fr;
+
+gap:24px;
+
+}
+
+}
+
+@media (max-width:600px){
+
+.why-heading{
+
+font-size:34px;
+
+line-height:1.15;
+
+}
+
+.why-subtitle{
+
 font-size:17px;
 
 line-height:1.8;
 
-color:#555;
+}
 
-margin:0;
+.advantage-card{
+
+padding:28px 24px;
+
+border-radius:20px;
 
 }
+
+.advantage-card h3{
+
+font-size:26px;
+
+}
+
+.advantage-card p{
+
+font-size:16px;
+
+}
+
+.why-image{
+
+margin-bottom:55px;
+
+}
+
+}
+
 /* ================= PROCESS ================= */
 
 .process{
