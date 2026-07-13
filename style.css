@@ -2859,14 +2859,10 @@ max-width:680px;
 
 height:auto;
 
-}
-
 animation:floatImage 7s ease-in-out infinite;
 
 transition:
-
 transform .45s ease,
-
 filter .45s ease;
 
 }
