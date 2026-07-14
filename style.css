@@ -1,28 +1,48 @@
-/* ===========================
-   BLUE HARBOR DISPATCH
-   CSS PART 1
-=========================== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+/*==================================================
+                ROOT VARIABLES
+==================================================*/
 
 :root{
 
---primary:#0A3D91;
---secondary:#1E88E5;
+--primary:#0B3D91;
+--secondary:#2563EB;
 --accent:#F4A300;
 
---dark:#1F2937;
---text:#4B5563;
+--dark:#111827;
+--text:#5D6674;
 
 --light:#F8FAFC;
---white:#ffffff;
+--white:#FFFFFF;
 
---shadow:0 12px 35px rgba(0,0,0,.08);
+--radius:24px;
+--radius-sm:18px;
+
+--shadow-sm:
+0 10px 30px rgba(15,23,42,.05);
+
+--shadow:
+0 18px 45px rgba(15,23,42,.08);
+
+--shadow-lg:
+0 30px 70px rgba(15,23,42,.12);
+
+}
+
+/*==================================================
+                GLOBAL STYLES
+==================================================*/
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
 
 }
 
@@ -34,15 +54,61 @@ background:var(--light);
 
 color:var(--dark);
 
-line-height:1.7;
+line-height:1.75;
 
 overflow-x:hidden;
 
+text-rendering:optimizeLegibility;
+
+-webkit-font-smoothing:antialiased;
+
+}
+p{
+
+color:var(--text);
+
+font-size:18px;
+
+line-height:1.85;
+
 }
 
-h1,h2,h3,h4{
+h1{
+
+font-weight:800;
+
+}
+
+h2{
+
+font-weight:800;
+
+}
+
+h3{
+
+font-weight:700;
+
+}
+
+h1,
+h2,
+h3,
+h4{
 
 font-family:'Poppins',sans-serif;
+
+line-height:1.15;
+
+}
+
+img{
+
+display:block;
+
+max-width:100%;
+
+height:auto;
 
 }
 
@@ -52,83 +118,130 @@ text-decoration:none;
 
 color:inherit;
 
+transition:all .35s ease;
+
 }
 
 ul{
 
 list-style:none;
 
+padding:0;
+
+margin:0;
+
 }
+
+/*==================================================
+                LAYOUT
+==================================================*/
 
 .container{
 
 width:min(1180px,90%);
 
-margin:auto;
+margin:0 auto;
 
 }
 
 section{
 
-padding:90px 0;
+position:relative;
+
+padding:120px 0;
+
+overflow:hidden;
 
 }
 
+/*==================================================
+                BUTTONS
+==================================================*/
+
 .btn{
 
-display:inline-block;
+display:inline-flex;
 
-background:var(--primary);
+align-items:center;
 
-color:white;
+justify-content:center;
 
-padding:15px 34px;
+padding:17px 38px;
 
-border-radius:50px;
+border-radius:999px;
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:#fff;
+
+font-size:16px;
 
 font-weight:600;
 
-transition:.3s;
-
 box-shadow:var(--shadow);
+
+transition:
+
+transform .35s ease,
+
+box-shadow .35s ease,
+
+filter .35s ease;
 
 }
 
 .btn:hover{
 
-background:#062d6d;
+transform:translateY(-4px);
 
-transform:translateY(-3px);
+box-shadow:var(--shadow-lg);
+
+filter:brightness(1.03);
 
 }
 
 .btn-outline{
 
-display:inline-block;
+display:inline-flex;
 
-padding:15px 34px;
+align-items:center;
 
-border-radius:50px;
+justify-content:center;
 
-border:2px solid white;
+padding:17px 38px;
 
-color:white;
+border-radius:999px;
+
+border:2px solid rgba(255,255,255,.9);
+
+background:transparent;
+
+color:#fff;
+
+font-size:16px;
 
 font-weight:600;
 
-transition:.3s;
-
-margin-left:15px;
+transition:all .35s ease;
 
 }
 
 .btn-outline:hover{
 
-background:white;
+background:#fff;
 
 color:var(--primary);
 
+transform:translateY(-4px);
+
 }
+/*==================================================
+                HEADER / NAVBAR
+==================================================*/
 
 .navbar{
 
@@ -140,11 +253,25 @@ left:0;
 
 width:100%;
 
-background:white;
-
-box-shadow:0 3px 15px rgba(0,0,0,.05);
-
 z-index:1000;
+
+padding:18px 0;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(220,230,245,.8);
+
+transition:
+
+background .35s ease,
+
+padding .35s ease,
+
+box-shadow .35s ease;
 
 }
 
@@ -152,32 +279,39 @@ z-index:1000;
 
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
 
-height:80px;
+justify-content:space-between;
+
+gap:40px;
 
 }
 
 .logo{
 
-font-size:28px;
+display:flex;
 
-font-weight:800;
+align-items:center;
 
-color:var(--primary);
-
-font-family:'Poppins',sans-serif;
+flex-shrink:0;
 
 }
+
 .logo img{
 
-height:60px;
+height:56px;
 
 width:auto;
 
 display:block;
+
+transition:transform .35s ease;
+
+}
+
+.logo:hover img{
+
+transform:scale(1.03);
 
 }
 
@@ -185,41 +319,98 @@ display:block;
 
 display:flex;
 
-gap:35px;
+align-items:center;
 
-font-weight:600;
+gap:34px;
 
-color:var(--dark);
+margin-left:auto;
+
+margin-right:28px;
 
 }
 
 .nav-links a{
 
-transition:.3s;
+position:relative;
+
+font-size:16px;
+
+font-weight:600;
+
+color:var(--dark);
+
+transition:color .3s ease;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+width:0;
+
+height:2px;
+
+border-radius:99px;
+
+background:var(--secondary);
+
+transition:width .3s ease;
 
 }
 
 .nav-links a:hover{
 
-color:var(--secondary);
+color:var(--primary);
 
 }
 
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+.nav-btn{
+
+padding:14px 30px;
+
+font-size:15px;
+
+box-shadow:var(--shadow-sm);
+
+}
+
+/*==================================================
+                        HERO
+==================================================*/
+
 .hero{
 
-min-height:108vh;
-
-padding:135px 0 145px;
+position:relative;
 
 display:flex;
 
 align-items:center;
 
-position:relative;
+min-height:105vh;
+
+padding:150px 0 135px;
 
 overflow:hidden;
 
-background:url("images/hero-banner.png") center center/cover no-repeat;
+background:
+url("images/hero-banner.png")
+center center/cover
+no-repeat;
+
+isolation:isolate;
 
 }
 
@@ -230,56 +421,113 @@ position:absolute;
 inset:0;
 
 background:linear-gradient(
+
 90deg,
-rgba(7,26,63,.82) 0%,
-rgba(7,26,63,.68) 35%,
-rgba(7,26,63,.42) 65%,
-rgba(7,26,63,.10) 100%
+
+rgba(7,26,63,.88) 0%,
+
+rgba(7,26,63,.72) 38%,
+
+rgba(7,26,63,.42) 68%,
+
+rgba(7,26,63,.12) 100%
+
 );
+
+z-index:1;
 
 }
 
 .hero-content{
-    max-width:560px;
-    margin-left:6%;
-    padding-top:10px;
-    position:relative;
-    z-index:2;
+
+position:relative;
+
+z-index:2;
+
+max-width:610px;
+
+padding-top:25px;
+
 }
 
 .hero h1{
-    font-size:58px;
-    line-height:1.08;
-    font-weight:800;
-    color:#ffffff;
-    margin-bottom:22px;
-    letter-spacing:-1.5px;
+
+font-size:60px;
+
+font-weight:800;
+
+line-height:1.05;
+
+letter-spacing:-2px;
+
+color:#fff;
+
+margin-bottom:28px;
+
 }
 
 .hero h1 span{
-    color:#69B3FF;
-    display:block;
+
+display:block;
+
+margin-top:6px;
+
+background:linear-gradient(
+
+135deg,
+
+#69B3FF,
+
+#A5D4FF
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
 }
 
 .hero p{
-    font-size:22px;
-    line-height:1.75;
-    max-width:470px;
-    color:rgba(255,255,255,.95);
-    margin-bottom:46px;
+
+max-width:560px;
+
+margin-bottom:46px;
+
+font-size:20px;
+
+line-height:1.9;
+
+color:rgba(255,255,255,.92);
+
 }
 
 .hero-buttons{
-    display:flex;
-    gap:18px;
-    margin-top:12px;
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
 }
+/*==================================================
+                    TRUST BAR
+==================================================*/
 
 .trust-bar{
 
-background:#f8fafc;
+padding:70px 0;
 
-padding:35px 0;
+background:linear-gradient(
+180deg,
+#F8FAFC 0%,
+#FFFFFF 100%
+);
 
 }
 
@@ -289,7 +537,7 @@ display:grid;
 
 grid-template-columns:repeat(4,1fr);
 
-gap:22px;
+gap:28px;
 
 align-items:stretch;
 
@@ -297,19 +545,29 @@ align-items:stretch;
 
 .trust-card{
 
-background:#ffffff;
+padding:34px 26px;
 
 text-align:center;
 
-padding:34px 28px;
+border-radius:22px;
 
-border-radius:18px;
+background:rgba(255,255,255,.78);
 
-border:1px solid #e8edf5;
+backdrop-filter:blur(18px);
 
-box-shadow:0 6px 18px rgba(15,23,42,.06);
+-webkit-backdrop-filter:blur(18px);
 
-transition:all .3s ease;
+border:1px solid rgba(220,230,245,.9);
+
+box-shadow:var(--shadow-sm);
+
+transition:
+
+transform .35s ease,
+
+box-shadow .35s ease,
+
+border-color .35s ease;
 
 }
 
@@ -317,353 +575,81 @@ transition:all .3s ease;
 
 transform:translateY(-8px);
 
-box-shadow:0 18px 40px rgba(15,23,42,.18);
+border-color:rgba(37,99,235,.28);
 
-border-color:#2f80ed;
+box-shadow:var(--shadow);
 
 }
 
 .trust-card h3{
 
-color:var(--primary);
+margin-bottom:12px;
 
 font-size:34px;
 
 font-weight:800;
 
-margin-bottom:12px;
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
 
 letter-spacing:-1px;
 
 }
+
 .trust-card p{
 
 font-size:16px;
 
-font-weight:500;
+line-height:1.7;
 
-line-height:1.6;
-
-color:#5f6b7a;
-
-margin:0;
+color:var(--text);
 
 }
-/* ===========================
-   BLUE HARBOR DISPATCH
-   CSS PART 2
-=========================== */
+
+/*==================================================
+                    ABOUT
+==================================================*/
 
 .about{
 
-background:#f8fafc;
-
-padding:90px 0;
-
-}
-
-.about h2{
-
-font-size:46px;
-
-line-height:1.15;
-
-margin-bottom:28px;
-
-color:var(--primary);
-
-text-align:left;
-
-letter-spacing:-1px;
-
-max-width:560px;
+background:linear-gradient(
+180deg,
+#F8FAFC 0%,
+#FFFFFF 100%
+);
 
 }
-
-.about p{
-
-max-width:900px;
-
-margin:auto;
-
-text-align:center;
-
-font-size:18px;
-
-color:var(--text);
-
-line-height:1.9;
-
-}
-
-.services{
-
-background:#f8fafc;
-
-}
-
-.services-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-gap:30px;
-
-margin-top:50px;
-
-}
-
-.service-card{
-
-background:white;
-
-padding:35px;
-
-border-radius:18px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-border-top:5px solid transparent;
-
-}
-
-.service-card:hover{
-
-transform:translateY(-10px);
-
-border-top:5px solid var(--accent);
-
-}
-
-.service-card h3{
-
-margin-bottom:15px;
-
-color:var(--primary);
-
-}
-
-.service-card p{
-
-color:var(--text);
-
-}
-
-.why-us{
-
-background:white;
-
-}
-
-.why-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-
-margin-top:50px;
-
-}
-
-.why-card{
-
-background:#f8fafc;
-
-padding:35px;
-
-border-radius:18px;
-
-text-align:center;
-
-transition:.35s;
-
-box-shadow:var(--shadow);
-
-}
-
-.why-card:hover{
-
-transform:translateY(-8px);
-
-background:var(--primary);
-
-color:white;
-
-}
-
-.why-card:hover h3{
-
-color:white;
-
-}
-
-.why-card h3{
-
-margin-bottom:15px;
-
-color:var(--primary);
-
-}
-
-.process{
-
-background:#f8fafc;
-
-}
-
-.process-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-margin-top:50px;
-
-}
-
-.step{
-
-background:white;
-
-padding:35px;
-
-text-align:center;
-
-border-radius:18px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-}
-
-.step:hover{
-
-transform:translateY(-8px);
-
-}
-
-.step span{
-
-display:inline-flex;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-align-items:center;
-
-justify-content:center;
-
-background:var(--primary);
-
-color:white;
-
-font-size:24px;
-
-font-weight:700;
-
-margin-bottom:20px;
-
-}
-
-.step h3{
-
-margin-bottom:12px;
-
-color:var(--primary);
-
-}
-
-.step p{
-
-color:var(--text);
-
-}
-/* ===========================
-   BLUE HARBOR DISPATCH
-   CSS PART 3
-=========================== */
-
-.faq{
-
-background:white;
-
-}
-
-.faq-item{
-
-background:#f8fafc;
-
-padding:28px;
-
-margin:20px 0;
-
-border-left:5px solid var(--primary);
-
-border-radius:12px;
-
-box-shadow:var(--shadow);
-
-}
-
-.faq-item h3{
-
-margin-bottom:12px;
-
-color:var(--primary);
-
-}
-
-.faq-item p{
-
-color:var(--text);
-
-}
-
-.consultation{
-
-background:linear-gradient(135deg,var(--primary),var(--secondary));
-
-text-align:center;
-
-color:white;
-
-}
-
-.consultation p{
-
-max-width:700px;
-
-margin:25px auto 40px;
-
-font-size:18px;
-
-}
-
-
-/* ===========================
-   ABOUT SECTION
-=========================== */
 
 .about-grid{
 
+max-width:1120px;
+
+margin:0 auto;
+
 display:grid;
 
-grid-template-columns:58% 42%;
-
-gap:70px;
+grid-template-columns:1.02fr .98fr;
 
 align-items:center;
+
+gap:72px;
+
+}
+
+.about-image{
+
+display:flex;
+
+justify-content:center;
 
 }
 
@@ -671,93 +657,89 @@ align-items:center;
 
 width:100%;
 
-height:100%;
+max-width:560px;
 
-object-fit:cover;
+border-radius:28px;
 
-border-radius:22px;
+box-shadow:var(--shadow-lg);
 
-display:block;
+transition:
 
-box-shadow:0 18px 45px rgba(15,23,42,.12);
+transform .45s ease,
+
+box-shadow .45s ease,
+
+filter .45s ease;
+
+}
+
+.about-image:hover img{
+
+transform:translateY(-8px);
+
+box-shadow:0 35px 75px rgba(15,23,42,.16);
+
+}
+
+.about-text{
+
+max-width:500px;
+
+}
+
+.about h2{
+
+margin-bottom:28px;
+
+font-size:50px;
+
+letter-spacing:-1.4px;
+
+color:var(--dark);
 
 }
 
 .about-text p{
 
-font-size:18px;
-
-line-height:1.8;
-
-color:#5f6b7a;
-
 margin-bottom:24px;
 
-max-width:560px;
+font-size:18px;
+
+line-height:1.9;
+
+color:var(--text);
 
 }
 
-.about-list{
+.about-text p:last-child{
 
-margin-top:30px;
-
-display:grid;
-
-gap:18px;
-
-padding:0;
-
-list-style:none;
+margin-bottom:0;
 
 }
 
-.about-list li{
-
-display:flex;
-
-align-items:center;
-
-gap:14px;
-
-font-size:17px;
-
-font-weight:600;
-
-color:#233554;
-
-}
-.about-list li::before{
-
-content:"✓";
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-width:26px;
-
-height:26px;
-
-background:#0f4c81;
-
-color:#ffffff;
-
-border-radius:50%;
-
-font-size:14px;
-
-font-weight:700;
-
-flex-shrink:0;
-
-}
 @media(max-width:900px){
 
 .about-grid{
 
 grid-template-columns:1fr;
+
+gap:55px;
+
+text-align:center;
+
+}
+
+.about-text{
+
+max-width:100%;
+
+margin:0 auto;
+
+}
+
+.about h2{
+
+font-size:40px;
 
 }
 
@@ -775,105 +757,70 @@ order:1;
 
 }
 
+/*==================================================
+                  GOAL BREAK
+==================================================*/
+
 .goal-break{
 
-padding:90px 0;
+padding:95px 0;
 
 background:linear-gradient(
 180deg,
-#ffffff 0%,
-#f7faff 100%
+#FFFFFF 0%,
+#F8FBFF 100%
 );
-
-overflow:hidden;
 
 }
 
 .goal-break .container{
 
-max-width:1200px;
+max-width:1080px;
 
-margin:auto;
+margin:0 auto;
 
-padding:45px 0;
+padding:42px 20px;
 
 text-align:center;
 
-border-top:1px solid rgba(7,26,63,.10);
+border-top:1px solid rgba(15,23,42,.08);
 
-border-bottom:1px solid rgba(7,26,63,.10);
+border-bottom:1px solid rgba(15,23,42,.08);
 
 }
 
 .goal-break h2{
 
-margin:0;
+font-size:40px;
 
-font-size:38px;
+font-weight:800;
 
-font-weight:700;
-
-line-height:1.3;
+line-height:1.35;
 
 letter-spacing:-1px;
 
 color:var(--dark);
 
-font-family:'Poppins',sans-serif;
-
 }
 
 .goal-label{
 
-font-size:22px;
+display:block;
+
+margin-bottom:16px;
+
+font-size:15px;
 
 font-weight:700;
 
-letter-spacing:1px;
+letter-spacing:3px;
 
 text-transform:uppercase;
 
 color:var(--primary);
 
-margin-right:16px;
-
-font-family:'Poppins',sans-serif;
-
 }
 
-.goal-break{
-
-padding:70px 0;
-
-background:linear-gradient(
-180deg,
-#ffffff 0%,
-#f8fbff 100%
-);
-
-overflow:hidden;
-
-}
-
-@keyframes goalFade{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
 /*==================================================
                     SERVICES
 ==================================================*/
