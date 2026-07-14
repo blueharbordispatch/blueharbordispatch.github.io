@@ -832,51 +832,59 @@ Trusted dispatch support for Owner-Operators and Small Fleets across the United 
 
 </div>
 
-<form class="contact-form"
-data-aos="fade-left"
-data-aos-delay="150">
+<form
+    class="contact-form"
+    action="https://formspree.io/f/xzdnzvjz"
+    method="POST"
+    data-aos="fade-left"
+    data-aos-delay="150">
 
-<div class="input-group">
+    <div class="input-group">
 
-<input
-type="text"
-placeholder="Full Name"
-required>
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required>
 
-<input
-type="email"
-placeholder="Email Address"
-required>
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required>
 
-</div>
+    </div>
 
-<div class="input-group">
+    <div class="input-group">
 
-<input
-type="tel"
-placeholder="Phone Number">
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number">
 
-<input
-type="text"
-placeholder="Equipment Type (Dry Van, Reefer, Flatbed...)">
+        <input
+            type="text"
+            name="equipment"
+            placeholder="Equipment Type (Dry Van, Reefer, Flatbed...)">
 
-</div>
+    </div>
 
-<input
-type="text"
-placeholder="MC Number (Optional)">
+    <input
+        type="text"
+        name="mc_number"
+        placeholder="MC Number (Optional)">
 
-<textarea
-rows="7"
-placeholder="Tell us about your truck, preferred lanes, fleet size, or anything else that will help us understand your dispatch needs..."></textarea>
+    <textarea
+        rows="7"
+        name="message"
+        placeholder="Tell us about your truck, preferred lanes, fleet size, or anything else that will help us understand your dispatch needs..."
+        required></textarea>
 
-<button
-type="submit"
-class="btn">
-
-Request Free Consultation
-
-</button>
+    <button
+        type="submit"
+        class="btn">
+        Request Free Consultation
+    </button>
 
 </form>
 
