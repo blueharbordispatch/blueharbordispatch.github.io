@@ -80,20 +80,69 @@ document.querySelectorAll(
 
 });
 
-// Contact form (temporary)
-const form = document.querySelector("form");
+// ===========================
+// CONTACT FORM (WEB3FORMS)
+// ===========================
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
 
 if (form) {
 
-    form.addEventListener("submit", function (e) {
+    const submitBtn = form.querySelector("button");
+
+    form.addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
-        alert(
-            "Thank you for contacting Blue Harbor Dispatch. We will get back to you shortly."
-        );
+        status.textContent = "";
+        status.className = "form-status";
 
-        form.reset();
+        const originalText = submitBtn.textContent;
+
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        try {
+
+            const formData = new FormData(form);
+
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+
+                status.textContent =
+                    "✅ Thank you! Your request has been sent successfully. We'll get back to you as soon as possible.";
+
+                status.classList.add("success");
+
+                form.reset();
+
+            } else {
+
+                status.textContent =
+                    "❌ Something went wrong. Please try again.";
+
+                status.classList.add("error");
+
+            }
+
+        } catch (error) {
+
+            status.textContent =
+                "❌ Network error. Please try again later.";
+
+            status.classList.add("error");
+
+        }
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
 
     });
 
