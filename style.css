@@ -375,7 +375,7 @@ transition:width .3s ease;
 
 .nav-links a:hover{
 
-color:#ffffff;
+color:var(--primary);
 
 }
 
