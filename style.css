@@ -433,9 +433,11 @@ display:flex;
 
 align-items:center;
 
+justify-content:flex-start;
+
 min-height:105vh;
 
-padding:150px 0 135px;
+padding:145px 0 125px;
 
 overflow:hidden;
 
@@ -480,7 +482,11 @@ z-index:2;
 
 max-width:610px;
 
-padding-top:25px;
+width:100%;
+
+padding-top:20px;
+
+margin-left:0;
 
 }
 
