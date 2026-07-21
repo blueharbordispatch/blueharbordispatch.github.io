@@ -596,7 +596,11 @@ function drawConnections(){
 // MOUSE GLOW
 // ===============================
 
-function drawMouseGlow(){
+function drawWarpField(){
+
+
+    const warpRadius = 220;
+
 
 
     const gradient =
@@ -606,22 +610,36 @@ function drawMouseGlow(){
             0,
             mouse.x,
             mouse.y,
-            mouse.radius
+            warpRadius
         );
 
 
 
     gradient.addColorStop(
         0,
-        "rgba(80,170,255,0.16)"
+        "rgba(120,190,255,0.12)"
     );
 
+
+    gradient.addColorStop(
+        0.4,
+        "rgba(80,160,255,0.05)"
+    );
 
 
     gradient.addColorStop(
         1,
-        "rgba(80,170,255,0)"
+        "rgba(80,160,255,0)"
     );
+
+
+
+    ctx.save();
+
+
+
+    ctx.globalCompositeOperation =
+        "screen";
 
 
 
@@ -637,7 +655,7 @@ function drawMouseGlow(){
     ctx.arc(
         mouse.x,
         mouse.y,
-        mouse.radius,
+        warpRadius,
         0,
         Math.PI * 2
     );
@@ -645,6 +663,45 @@ function drawMouseGlow(){
 
 
     ctx.fill();
+
+
+
+    ctx.restore();
+
+
+
+    for(
+        let i = 1;
+        i <= 3;
+        i++
+    ){
+
+        ctx.beginPath();
+
+
+
+        ctx.arc(
+            mouse.x,
+            mouse.y,
+            60 * i,
+            0,
+            Math.PI * 2
+        );
+
+
+
+        ctx.strokeStyle =
+            `rgba(100,180,255,${0.08 / i})`;
+
+
+
+        ctx.lineWidth = 1;
+
+
+
+        ctx.stroke();
+
+    }
 
 
 }
@@ -2252,7 +2309,7 @@ function render(){
 
 
 
-    drawMouseGlow();
+    drawWarpField();
 
 
 
