@@ -581,6 +581,37 @@ opacity:1;
 }
 
 }
+
+/* ==========================
+   HERO NETWORK
+========================== */
+
+#network-background{
+
+position:absolute;
+
+inset:0;
+
+z-index:1;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+#network-background canvas{
+
+width:100%;
+
+height:100%;
+
+display:block;
+
+opacity:.65;
+
+}
+
 @keyframes routeMove{
 
 from{

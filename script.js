@@ -166,3 +166,93 @@ document.querySelectorAll(".faq-question").forEach(button => {
     });
 
 });
+
+/* ==========================
+   HERO NETWORK
+========================== */
+
+const network = document.getElementById("network-background");
+
+if (network) {
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    network.appendChild(canvas);
+
+    function resizeCanvas() {
+        canvas.width = network.offsetWidth;
+        canvas.height = network.offsetHeight;
+    }
+
+    resizeCanvas();
+
+    window.addEventListener("resize", resizeCanvas);
+
+const nodes = [];
+
+function createNodes() {
+
+    nodes.length = 0;
+
+    const count = Math.floor(canvas.width / 45);
+
+    for (let i = 0; i < count; i++) {
+
+        nodes.push({
+
+            x: Math.random() * canvas.width,
+
+            y: Math.random() * canvas.height,
+
+            r: Math.random() * 2 + 1,
+
+            dx: (Math.random() - 0.5) * 0.2,
+
+            dy: (Math.random() - 0.5) * 0.2
+
+        });
+
+    }
+
+}
+
+createNodes();
+
+window.addEventListener("resize", () => {
+
+    resizeCanvas();
+
+    createNodes();
+
+});
+
+function drawBackground() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    nodes.forEach(node => {
+
+        node.x += node.dx;
+        node.y += node.dy;
+
+        if (node.x < 0 || node.x > canvas.width) node.dx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.dy *= -1;
+
+        ctx.beginPath();
+
+        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+
+        ctx.fillStyle = "rgba(32,110,255,.55)";
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(drawBackground);
+
+}
+
+drawBackground();
+
+}
