@@ -10,6 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!hero || !network) return;
 
-    console.log("Blue Harbor Hero Engine Loaded");
-
+   document.body.style.outline = "4px solid lime";
 });
