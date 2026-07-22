@@ -292,128 +292,149 @@ class Particle {
 
 
 
-    update(){
+update(){
 
 
-        this.x +=
-            this.speedX;
+    this.x +=
+        this.speedX;
 
 
-
-        this.y +=
-            this.speedY;
-
-
-
-        if(
-            this.x < -50
-        ){
-
-            this.x =
-                width + 50;
-
-        }
+    this.y +=
+        this.speedY;
 
 
 
-        if(
-            this.x > width + 50
-        ){
+    if(
+        this.x < -50
+    ){
 
-            this.x =
-                -50;
+        this.x =
+            width + 50;
 
-        }
-
-
-
-        if(
-            this.y < -50
-        ){
-
-            this.y =
-                height + 50;
-
-        }
+    }
 
 
 
-        if(
-            this.y > height + 50
-        ){
+    if(
+        this.x > width + 50
+    ){
 
-            this.y =
-                -50;
+        this.x =
+            -50;
 
-        }
-
-
-
-
-        const dx =
-            mouse.x -
-            this.x;
+    }
 
 
 
-        const dy =
-            mouse.y -
-            this.y;
+    if(
+        this.y < -50
+    ){
+
+        this.y =
+            height + 50;
+
+    }
 
 
 
-        const distance =
-            Math.sqrt(
-                dx * dx +
-                dy * dy
+    if(
+        this.y > height + 50
+    ){
+
+        this.y =
+            -50;
+
+    }
+
+
+
+    const dx =
+        mouse.x -
+        this.x;
+
+
+
+    const dy =
+        mouse.y -
+        this.y;
+
+
+
+    const distance =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+
+
+    if(
+        distance <
+        mouse.radius
+    ){
+
+        const force =
+            Math.pow(
+                (
+                    mouse.radius -
+                    distance
+                ) /
+                mouse.radius,
+                2
             );
 
 
 
-
-        if(
-            distance <
-            mouse.radius
-        ){
-
-
-            const force =
-                (
-                    mouse.radius -
-                    distance
-                )
-                /
-                mouse.radius;
+        const angle =
+            Math.atan2(
+                dy,
+                dx
+            );
 
 
 
-            this.x -=
-                dx *
-                force *
-                0.015 *
-                this.depth;
-
-
-
-            this.y -=
-                dy *
-                force *
-                0.015 *
-                this.depth;
-
-
-        }
-
-
-
-
-        this.scrollY =
-            scrollOffset *
-            0.0005 *
+        const lift =
+            force *
+            18 *
             this.depth;
 
 
+
+        this.x -=
+            Math.cos(angle) *
+            lift;
+
+
+
+        this.y -=
+            Math.sin(angle) *
+            lift;
+
+
+
+        this.x +=
+            Math.sin(angle) *
+            force *
+            4;
+
+
+
+        this.y -=
+            Math.cos(angle) *
+            force *
+            4;
+
     }
+
+
+
+    this.scrollY =
+        scrollOffset *
+        0.0005 *
+        this.depth;
+
+
+}
 
 
 
@@ -770,65 +791,59 @@ createRoutes();
 
 function drawRoutes(){
 
+    freightRoutes.forEach(route => {
 
-    routes.forEach(
-        route => {
+        const from =
+            dispatchHubs[route[0]];
 
+        const to =
+            dispatchHubs[route[1]];
 
-            route.x +=
-                route.speed;
+        const x1 =
+            from.x * width;
 
+        const y1 =
+            from.y * height;
 
+        const x2 =
+            to.x * width;
 
-            if(
-                route.x >
-                width + 200
-            ){
+        const y2 =
+            to.y * height;
 
-                route.x =
-                    -route.length;
+        const curve =
+            Math.abs(x2 - x1) * 0.12;
 
-            }
+        ctx.beginPath();
 
+        ctx.moveTo(
+            x1,
+            y1
+        );
 
+        ctx.quadraticCurveTo(
 
-            ctx.beginPath();
+            (x1 + x2) / 2,
 
+            ((y1 + y2) / 2) - curve,
 
+            x2,
 
-            ctx.moveTo(
-                route.x,
-                route.y
-            );
+            y2
 
+        );
 
+        ctx.strokeStyle =
+            "rgba(85,170,255,0.18)";
 
-            ctx.lineTo(
-                route.x +
-                route.length,
-                route.y
-            );
+        ctx.lineWidth = 2;
 
+        ctx.stroke();
 
-
-            ctx.strokeStyle =
-                "rgba(90,170,255,0.08)";
-
-
-
-            ctx.lineWidth =
-                2;
-
-
-
-            ctx.stroke();
-
-
-        }
-    );
-
+    });
 
 }
+
 
 // ===============================
 // DEPTH PARALLAX
@@ -2050,30 +2065,748 @@ function createAmbientLights(){
 
 
 
-
 function drawAmbientLights(){
-
 
     ambientLights.forEach(
         light => {
 
-
             light.update();
 
-
             light.draw();
-
 
         }
     );
 
+}
+
+const stateBlueprints = [
+
+    {
+        name:"Texas",
+        points:[
+            [0.32,0.55],
+            [0.45,0.55],
+            [0.48,0.75],
+            [0.35,0.82],
+            [0.30,0.68]
+        ]
+    },
+
+    {
+        name:"California",
+        points:[
+            [0.08,0.35],
+            [0.18,0.38],
+            [0.15,0.70],
+            [0.08,0.65]
+        ]
+    },
+
+    {
+        name:"New York",
+        points:[
+            [0.78,0.25],
+            [0.90,0.25],
+            [0.88,0.38],
+            [0.80,0.40]
+        ]
+    }
+
+];
+
+function drawStateBlueprints(){
+
+    ctx.save();
+
+    stateBlueprints.forEach(state => {
+
+        ctx.beginPath();
+
+        state.points.forEach((point,index)=>{
+
+            const x =
+                point[0] * width;
+
+            const y =
+                point[1] * height;
+
+
+            if(index === 0){
+
+                ctx.moveTo(x,y);
+
+            }
+            else{
+
+                ctx.lineTo(x,y);
+
+            }
+
+        });
+
+
+        ctx.closePath();
+
+
+        ctx.strokeStyle =
+            "rgba(90,170,255,0.12)";
+
+
+        ctx.lineWidth = 2;
+
+
+        ctx.stroke();
+
+
+    });
+
+
+    ctx.restore();
+
+}
+
+const dispatchHubs = [
+
+    { name: "Los Angeles", x: 0.12, y: 0.63 },
+    { name: "Dallas",      x: 0.38, y: 0.69 },
+    { name: "Chicago",     x: 0.50, y: 0.35 },
+    { name: "Atlanta",     x: 0.66, y: 0.62 },
+    { name: "New York",    x: 0.86, y: 0.33 },
+    { name: "Seattle",     x: 0.12, y: 0.20 }
+
+];
+
+
+
+const interstateLabels = [
+
+    { route:[0,1], text:"I-10" },
+    { route:[1,2], text:"I-35" },
+    { route:[2,4], text:"I-80" },
+    { route:[1,3], text:"I-20" },
+    { route:[3,4], text:"I-75" },
+    { route:[5,2], text:"I-90" }
+
+];
+
+
+
+function drawInterstateLabels(){
+
+    ctx.save();
+
+    ctx.font =
+        "600 10px Inter, sans-serif";
+
+    ctx.textAlign =
+        "center";
+
+    ctx.textBaseline =
+        "middle";
+
+    interstateLabels.forEach(label => {
+
+        const from =
+            dispatchHubs[label.route[0]];
+
+        const to =
+            dispatchHubs[label.route[1]];
+
+        const x =
+            ((from.x + to.x) / 2) * width;
+
+        const y =
+            ((from.y + to.y) / 2) * height;
+
+        ctx.beginPath();
+
+        ctx.roundRect(
+            x - 14,
+            y - 7,
+            28,
+            14,
+            4
+        );
+
+        ctx.fillStyle =
+            "rgba(15,35,55,0.92)";
+
+        ctx.fill();
+
+        ctx.strokeStyle =
+            "rgba(80,170,255,0.45)";
+
+        ctx.lineWidth = 1;
+
+        ctx.stroke();
+
+        ctx.fillStyle =
+            "#dff5ff";
+
+        ctx.fillText(
+            label.text,
+            x,
+            y
+        );
+
+    });
+
+    ctx.restore();
 
 }
 
 
 
+function drawDispatchHubs(){
+
+    dispatchHubs.forEach(hub => {
+
+        const x = hub.x * width;
+        const y = hub.y * height;
+
+        // Outer glow
+        ctx.beginPath();
+        ctx.arc(x, y, 18, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(78,168,255,0.08)";
+        ctx.fill();
+
+        // Hub ring
+        ctx.beginPath();
+        ctx.arc(x, y, 8, 0, Math.PI * 2);
+        ctx.strokeStyle = "rgba(90,185,255,0.55)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Warehouse
+        ctx.fillStyle = "#dfefff";
+        ctx.fillRect(x - 4, y - 3, 8, 6);
+
+        // Roof
+        ctx.beginPath();
+        ctx.moveTo(x - 5, y - 3);
+        ctx.lineTo(x, y - 7);
+        ctx.lineTo(x + 5, y - 3);
+        ctx.closePath();
+        ctx.fillStyle = "#4ea8ff";
+        ctx.fill();
+
+    });
+
+}
+
+function drawDispatchMap(){
+
+    ctx.save();
 
 
+    freightRoutes.forEach(route => {
+
+        const from =
+            dispatchHubs[route[0]];
+
+        const to =
+            dispatchHubs[route[1]];
+
+
+        const x1 =
+            from.x * width;
+
+        const y1 =
+            from.y * height;
+
+
+        const x2 =
+            to.x * width;
+
+        const y2 =
+            to.y * height;
+
+
+
+        const curve =
+            Math.abs(x2 - x1) * 0.15;
+
+
+
+        // Soft road glow
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x1,
+            y1
+        );
+
+
+        ctx.quadraticCurveTo(
+
+            (x1 + x2) / 2,
+
+            ((y1 + y2) / 2) - curve,
+
+            x2,
+
+            y2
+
+        );
+
+
+        ctx.strokeStyle =
+            "rgba(80,170,255,0.08)";
+
+        ctx.lineWidth = 8;
+
+        ctx.stroke();
+
+
+
+        // Main highway line
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x1,
+            y1
+        );
+
+
+        ctx.quadraticCurveTo(
+
+            (x1 + x2) / 2,
+
+            ((y1 + y2) / 2) - curve,
+
+            x2,
+
+            y2
+
+        );
+
+
+        ctx.strokeStyle =
+            "rgba(120,200,255,0.22)";
+
+
+        ctx.lineWidth = 1.5;
+
+
+        ctx.setLineDash(
+            [8,12]
+        );
+
+
+        ctx.stroke();
+
+
+        ctx.setLineDash([]);
+
+
+    });
+
+
+
+    ctx.restore();
+
+}
+
+
+const freightRoutes = [
+
+    [0,1], // Los Angeles → Dallas
+    [1,2], // Dallas → Chicago
+    [2,4], // Chicago → New York
+    [1,3], // Dallas → Atlanta
+    [3,4], // Atlanta → New York
+    [5,2], // Seattle → Chicago
+    [5,0]  // Seattle → Los Angeles
+
+];
+
+
+
+const shipmentSignals = [];
+
+
+
+function createShipmentSignals(){
+
+    shipmentSignals.length = 0;
+
+    freightRoutes.forEach(route => {
+
+        shipmentSignals.push({
+
+            route,
+
+            progress: Math.random(),
+
+            speed: 0.0015 + Math.random() * 0.002
+
+        });
+
+    });
+
+}
+
+
+
+createShipmentSignals();
+
+
+
+function drawShipmentSignals(){
+
+    shipmentSignals.forEach(signal => {
+
+        const from =
+            dispatchHubs[
+                signal.route[0]
+            ];
+
+        const to =
+            dispatchHubs[
+                signal.route[1]
+            ];
+
+        signal.progress +=
+            signal.speed;
+
+        if(signal.progress >= 1){
+
+            signal.progress = 0;
+
+        }
+
+        const x =
+            (from.x + (to.x - from.x) * signal.progress) * width;
+
+        const y =
+            (from.y + (to.y - from.y) * signal.progress) * height;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(180,220,255,0.95)";
+
+        ctx.fill();
+
+    });
+
+}
+
+const trucks = [];
+
+
+
+function createTrucks(){
+
+    trucks.length = 0;
+
+    for(let i = 0; i < freightRoutes.length; i++){
+
+        trucks.push({
+
+            route: i,
+
+            progress: Math.random(),
+
+            speed: 0.0012 + Math.random() * 0.001,
+
+            size: 8 + Math.random() * 2,
+
+            type: [
+                "dryvan",
+                "reefer",
+                "flatbed",
+                "box",
+                "tanker",
+                "hotshot"
+            ][i % 6]
+
+        });
+
+    }
+
+}
+
+createTrucks();
+
+function drawTrucks(){
+
+    trucks.forEach(truck => {
+
+        const route =
+            freightRoutes[truck.route];
+
+        if(!route) return;
+
+        const from =
+            dispatchHubs[route[0]];
+
+        const to =
+            dispatchHubs[route[1]];
+
+        truck.progress +=
+            truck.speed;
+
+        if(truck.progress >= 1){
+
+            truck.progress = 0;
+
+        }
+
+        const x =
+            (from.x + (to.x - from.x) * truck.progress) * width;
+
+        const y =
+            (from.y + (to.y - from.y) * truck.progress) * height;
+
+        const angle =
+            Math.atan2(
+                to.y - from.y,
+                to.x - from.x
+            );
+
+        ctx.save();
+
+        ctx.translate(
+            x,
+            y
+        );
+
+        ctx.rotate(
+            angle
+        );
+
+        ctx.scale(
+            truck.size / 10,
+            truck.size / 10
+        );
+
+        ctx.fillStyle =
+            "rgba(240,245,255,0.95)";
+
+        switch(truck.type){
+
+            case "dryvan":
+
+                ctx.fillRect(
+                    -8,
+                    -3,
+                    10,
+                    6
+                );
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+            case "reefer":
+
+                ctx.fillRect(
+                    -8,
+                    -3,
+                    10,
+                    6
+                );
+
+                ctx.fillStyle =
+                    "#cfe8ff";
+
+                ctx.fillRect(
+                    -7,
+                    -2,
+                    2,
+                    4
+                );
+
+                ctx.fillStyle =
+                    "#4ea8ff";
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+            case "flatbed":
+
+                ctx.fillRect(
+                    -8,
+                    -1.5,
+                    10,
+                    3
+                );
+
+                ctx.fillStyle =
+                    "#7a8795";
+
+                ctx.fillRect(
+                    -5,
+                    -4,
+                    2,
+                    3
+                );
+
+                ctx.fillRect(
+                    -1,
+                    -4,
+                    2,
+                    3
+                );
+
+                ctx.fillStyle =
+                    "#4ea8ff";
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+            case "box":
+
+                ctx.fillRect(
+                    -6,
+                    -4,
+                    8,
+                    8
+                );
+
+                ctx.fillStyle =
+                    "#4ea8ff";
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+            case "tanker":
+
+                ctx.beginPath();
+
+                ctx.roundRect(
+                    -8,
+                    -2.5,
+                    10,
+                    5,
+                    3
+                );
+
+                ctx.fill();
+
+                ctx.fillStyle =
+                    "#4ea8ff";
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+            case "hotshot":
+
+                ctx.fillRect(
+                    -3,
+                    -2,
+                    5,
+                    4
+                );
+
+                ctx.fillStyle =
+                    "#9eb7cc";
+
+                ctx.fillRect(
+                    -8,
+                    -1,
+                    5,
+                    2
+                );
+
+                ctx.fillStyle =
+                    "#4ea8ff";
+
+                ctx.fillRect(
+                    2,
+                    -2.5,
+                    5,
+                    5
+                );
+
+            break;
+
+        }
+
+        ctx.fillStyle =
+            "#16304a";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            -5,
+            -3,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.arc(
+            -5,
+            3,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.arc(
+            4,
+            -3,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.arc(
+            4,
+            3,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+
+    });
+
+}
 
 // ===============================
 // ROUTE PARTICLES
@@ -2268,26 +3001,42 @@ function render(){
 
 
 
-    drawAmbientLights();
+    ctx.transform(
+        1,
+        (mouse.y - height / 2) * 0.00008,
+        (mouse.x - width / 2) * 0.00008,
+        1,
+        0,
+        0
+    );
 
 
-    drawRoutes();
 
+drawAmbientLights();
 
-    drawDataStreams();
+drawStateBlueprints();
 
+drawDispatchMap();
 
-    drawConnections();
+drawDispatchHubs();
 
+drawInterstateLabels();
 
-    drawPulses();
+drawRoutes();
 
+drawShipmentSignals();
 
-    drawFloatingObjects();
+drawTrucks();
 
+drawDataStreams();
 
-    drawRouteParticles();
+drawConnections();
 
+drawPulses();
+
+drawFloatingObjects();
+
+drawRouteParticles();
 
 
     particles.forEach(
