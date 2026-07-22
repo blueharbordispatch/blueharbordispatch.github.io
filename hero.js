@@ -67,9 +67,9 @@ resizeCanvas();
 
 const settings = {
 
-    particleCount: 70,
+    particleCount: 35,
 
-    connectionDistance: 140,
+    connectionDistance: 90,
 
     mouseRadius: 180,
 
@@ -1168,7 +1168,7 @@ function createFloatingObjects(){
 
     for(
         let i = 0;
-        i < 14;
+        i < 6;
         i++
     ){
 
@@ -2050,7 +2050,7 @@ function createAmbientLights(){
 
     for(
         let i = 0;
-        i < 4;
+        i < 2;
         i++
     ){
 
@@ -2926,7 +2926,7 @@ function createRouteParticles(){
 
     for(
         let i = 0;
-        i < 45;
+        i < 20;
         i++
     ){
 
