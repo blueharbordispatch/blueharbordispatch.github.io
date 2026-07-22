@@ -616,56 +616,58 @@ function drawConnections(){
 
 function drawWarpField(){
 
-    const radius = 160;
+    const radius = 90;
 
-    const distortion =
-        Math.sin(Date.now() * 0.004) * 12;
+
+    const gradient =
+        ctx.createRadialGradient(
+            mouse.x,
+            mouse.y,
+            0,
+            mouse.x,
+            mouse.y,
+            radius
+        );
+
+
+    gradient.addColorStop(
+        0,
+        "rgba(120,200,255,0.18)"
+    );
+
+
+    gradient.addColorStop(
+        0.5,
+        "rgba(80,160,255,0.08)"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "rgba(80,160,255,0)"
+    );
 
 
     ctx.save();
 
 
-    ctx.globalAlpha = 0.18;
+    ctx.fillStyle =
+        gradient;
 
 
     ctx.beginPath();
 
 
-    for(let i = -3; i <= 3; i++){
-
-        const y =
-            mouse.y + i * 18;
-
-
-        ctx.moveTo(
-            mouse.x - radius,
-            y
-        );
+    ctx.arc(
+        mouse.x,
+        mouse.y,
+        radius,
+        0,
+        Math.PI * 2
+    );
 
 
-        ctx.quadraticCurveTo(
-
-            mouse.x,
-
-            y + distortion,
-
-            mouse.x + radius,
-
-            y
-
-        );
-
-    }
-
-
-    ctx.strokeStyle =
-        "rgba(120,200,255,0.8)";
-
-
-    ctx.lineWidth = 1.5;
-
-
-    ctx.stroke();
+    ctx.fill();
 
 
     ctx.restore();
