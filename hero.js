@@ -610,39 +610,35 @@ function drawConnections(){
 
 }
 
-
-
-
 // ===============================
 // MOUSE FABRIC WARP EFFECT
 // ===============================
 
 function drawWarpField(){
 
-    const strength = 8;
+    const radius = 160;
 
-    const wave =
-        Math.sin(Date.now() * 0.003) * strength;
+    const distortion =
+        Math.sin(Date.now() * 0.004) * 12;
 
 
     ctx.save();
 
 
-    ctx.globalAlpha = 0.12;
+    ctx.globalAlpha = 0.18;
 
 
     ctx.beginPath();
 
 
-    for(let i = 0; i < 5; i++){
+    for(let i = -3; i <= 3; i++){
 
         const y =
-            mouse.y +
-            (i - 2) * 25;
+            mouse.y + i * 18;
 
 
         ctx.moveTo(
-            0,
+            mouse.x - radius,
             y
         );
 
@@ -651,9 +647,9 @@ function drawWarpField(){
 
             mouse.x,
 
-            y + wave,
+            y + distortion,
 
-            width,
+            mouse.x + radius,
 
             y
 
@@ -663,10 +659,10 @@ function drawWarpField(){
 
 
     ctx.strokeStyle =
-        "rgba(120,190,255,0.35)";
+        "rgba(120,200,255,0.8)";
 
 
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 1.5;
 
 
     ctx.stroke();
@@ -676,15 +672,11 @@ function drawWarpField(){
 
 }
 
-
-
 // ===============================
 // LOGISTICS ROUTES
 // ===============================
 
 const routes = [];
-
-
 
 function createRoutes(){
 
@@ -731,11 +723,7 @@ function createRoutes(){
 
 }
 
-
-
 createRoutes();
-
-
 
 function drawRoutes(){
 
@@ -792,7 +780,6 @@ function drawRoutes(){
 
 }
 
-
 // ===============================
 // DEPTH PARALLAX
 // ===============================
@@ -800,8 +787,6 @@ function drawRoutes(){
 let heroOffsetX = 0;
 
 let heroOffsetY = 0;
-
-
 
 function updateParallax(){
 
@@ -847,16 +832,11 @@ function updateParallax(){
 
 }
 
-
-
-
 // ===============================
 // FLOATING GLASS OBJECTS
 // ===============================
 
 const floatingObjects = [];
-
-
 
 class FloatingObject {
 
@@ -2944,31 +2924,32 @@ function render(){
 
 
 
-drawAmbientLights();
+    drawAmbientLights();
 
-drawStateBlueprints();
+    drawStateBlueprints();
 
-drawDispatchMap();
+    drawDispatchMap();
 
-drawDispatchHubs();
+    drawDispatchHubs();
 
-drawInterstateLabels();
+    drawInterstateLabels();
 
-drawRoutes();
+    drawRoutes();
 
-drawShipmentSignals();
+    drawShipmentSignals();
 
-drawTrucks();
+    drawTrucks();
 
-drawDataStreams();
+    drawDataStreams();
 
-drawConnections();
+    drawConnections();
 
-drawPulses();
+    drawPulses();
 
-drawFloatingObjects();
+    drawFloatingObjects();
 
-drawRouteParticles();
+    drawRouteParticles();
+
 
 
     particles.forEach(
@@ -2987,6 +2968,14 @@ drawRouteParticles();
 
 
     ctx.restore();
+
+
+
+    // Mouse fabric warp effect
+
+    drawWarpField();
+
+
 
     requestAnimationFrame(
         render
