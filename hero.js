@@ -614,119 +614,67 @@ function drawConnections(){
 
 
 // ===============================
-// MOUSE GLOW
+// MOUSE FABRIC WARP EFFECT
 // ===============================
 
 function drawWarpField(){
 
+    const strength = 8;
 
-    const warpRadius = 220;
-
-
-
-    const gradient =
-        ctx.createRadialGradient(
-            mouse.x,
-            mouse.y,
-            0,
-            mouse.x,
-            mouse.y,
-            warpRadius
-        );
-
-
-
-    gradient.addColorStop(
-        0,
-        "rgba(120,190,255,0.12)"
-    );
-
-
-    gradient.addColorStop(
-        0.4,
-        "rgba(80,160,255,0.05)"
-    );
-
-
-    gradient.addColorStop(
-        1,
-        "rgba(80,160,255,0)"
-    );
-
+    const wave =
+        Math.sin(Date.now() * 0.003) * strength;
 
 
     ctx.save();
 
 
-
-    ctx.globalCompositeOperation =
-        "screen";
-
-
-
-    ctx.fillStyle =
-        gradient;
-
+    ctx.globalAlpha = 0.12;
 
 
     ctx.beginPath();
 
 
+    for(let i = 0; i < 5; i++){
 
-    ctx.arc(
-        mouse.x,
-        mouse.y,
-        warpRadius,
-        0,
-        Math.PI * 2
-    );
+        const y =
+            mouse.y +
+            (i - 2) * 25;
 
 
-
-    ctx.fill();
-
-
-
-    ctx.restore();
-
-
-
-    for(
-        let i = 1;
-        i <= 3;
-        i++
-    ){
-
-        ctx.beginPath();
-
-
-
-        ctx.arc(
-            mouse.x,
-            mouse.y,
-            60 * i,
+        ctx.moveTo(
             0,
-            Math.PI * 2
+            y
         );
 
 
+        ctx.quadraticCurveTo(
 
-        ctx.strokeStyle =
-            `rgba(100,180,255,${0.08 / i})`;
+            mouse.x,
 
+            y + wave,
 
+            width,
 
-        ctx.lineWidth = 1;
+            y
 
-
-
-        ctx.stroke();
+        );
 
     }
 
 
-}
+    ctx.strokeStyle =
+        "rgba(120,190,255,0.35)";
 
+
+    ctx.lineWidth = 1;
+
+
+    ctx.stroke();
+
+
+    ctx.restore();
+
+}
 
 
 
@@ -1156,9 +1104,6 @@ class FloatingObject {
 
 }
 
-
-
-
 function createFloatingObjects(){
 
 
@@ -1181,14 +1126,7 @@ function createFloatingObjects(){
 
 }
 
-
-
-
 createFloatingObjects();
-
-
-
-
 
 function drawFloatingObjects(){
 
@@ -1209,17 +1147,11 @@ function drawFloatingObjects(){
 
 }
 
-
-
-
-
 // ===============================
 // FREIGHT DATA STREAMS
 // ===============================
 
 const dataStreams = [];
-
-
 
 class DataStream {
 
@@ -3055,12 +2987,6 @@ drawRouteParticles();
 
 
     ctx.restore();
-
-
-
-    drawWarpField();
-
-
 
     requestAnimationFrame(
         render
