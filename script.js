@@ -15,8 +15,39 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
                 behavior: "smooth"
             });
         }
+
+        // Close the mobile menu after tapping a link
+        const navLinks = document.getElementById("nav-links");
+        const navToggle = document.getElementById("nav-toggle");
+
+        if (navLinks && navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            navToggle.classList.remove("active");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
     });
 });
+
+// ===========================
+// MOBILE NAV TOGGLE
+// ===========================
+
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (navToggle && navLinks) {
+
+    navToggle.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.toggle("open");
+
+        navToggle.classList.toggle("active", isOpen);
+
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+    });
+
+}
 
 // Navbar shadow on scroll
 const navbar = document.querySelector(".navbar");
