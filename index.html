@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =====================================================
+         DOCUMENT META
+    ====================================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -29,9 +33,20 @@
         content="Blue Harbor Dispatch"
     >
 
+    <meta
+        name="theme-color"
+        content="#071a3f"
+    >
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -45,17 +60,23 @@
     >
 
 
-    <!-- Main Stylesheet -->
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <!-- =====================================================
+         AOS ANIMATION LIBRARY
+    ====================================================== -->
 
-
-    <!-- AOS Animation Library -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    >
+
+
+    <!-- =====================================================
+         MAIN STYLESHEET
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
     >
 
 </head>
@@ -65,37 +86,42 @@
 
 
     <!-- =====================================================
-         HEADER
+         HEADER / NAVIGATION
     ====================================================== -->
 
     <header class="site-header">
 
         <nav
             class="navbar"
-            data-aos="fade-down"
-            data-aos-duration="800"
+            aria-label="Main navigation"
         >
 
             <div class="container nav-container">
 
 
-                <!-- Logo -->
+                <!-- ==========================
+                     BRAND
+                =========================== -->
 
                 <a
                     href="#home"
                     class="logo"
-                    aria-label="Blue Harbor Dispatch Home"
+                    aria-label="Blue Harbor Dispatch - Home"
                 >
 
                     <img
                         src="images/logo.png"
                         alt="Blue Harbor Dispatch"
+                        width="180"
+                        height="95"
                     >
 
                 </a>
 
 
-                <!-- Navigation -->
+                <!-- ==========================
+                     PRIMARY NAVIGATION
+                =========================== -->
 
                 <ul class="nav-links">
 
@@ -144,7 +170,9 @@
                 </ul>
 
 
-                <!-- Navigation CTA -->
+                <!-- ==========================
+                     NAVIGATION CTA
+                =========================== -->
 
                 <a
                     href="#contact"
@@ -161,12 +189,16 @@
 
 
 
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
     <main>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              HERO SECTION
-        ====================================================== -->
+        ================================================== -->
 
         <section
             class="hero"
@@ -175,7 +207,9 @@
         >
 
 
-            <!-- Background Overlay -->
+            <!-- ==========================
+                 BACKGROUND OVERLAY
+            =========================== -->
 
             <div
                 class="overlay"
@@ -183,7 +217,10 @@
             ></div>
 
 
-            <!-- Interactive Network Background -->
+            <!-- ==========================
+                 INTERACTIVE NETWORK
+                 Controlled by hero.js
+            =========================== -->
 
             <div
                 id="network-background"
@@ -191,10 +228,11 @@
             ></div>
 
 
-            <!-- Hero Content -->
+            <!-- ==========================
+                 HERO CONTENT
+            =========================== -->
 
             <div class="container hero-content">
-
 
                 <div
                     class="hero-copy"
@@ -225,7 +263,7 @@
                     </h1>
 
 
-                    <!-- Description -->
+                    <!-- Supporting Copy -->
 
                     <p class="hero-description">
 
@@ -238,10 +276,11 @@
                     </p>
 
 
-                    <!-- CTA Buttons -->
+                    <!-- ==========================
+                         HERO ACTIONS
+                    =========================== -->
 
                     <div class="hero-buttons">
-
 
                         <a
                             href="#contact"
@@ -250,23 +289,27 @@
                             Get Your Free Consultation
                         </a>
 
-
                         <a
                             href="https://wa.me/923475710193"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="btn-outline"
+                            aria-label="Chat with Blue Harbor Dispatch on WhatsApp"
                         >
                             Chat on WhatsApp
                         </a>
 
-
                     </div>
 
 
-                    <!-- Small Trust Indicator -->
+                    <!-- ==========================
+                         TRUST INDICATOR
+                    =========================== -->
 
-                    <div class="hero-trust">
+                    <div
+                        class="hero-trust"
+                        aria-label="Dispatch support built around your business"
+                    >
 
                         <span
                             class="hero-trust-dot"
@@ -282,37 +325,57 @@
 
                 </div>
 
-
             </div>
-
 
         </section>
 
-        <!-- =====================================================
+
+
+        <!-- =================================================
              TRUST BAR
-        ====================================================== -->
+        ================================================== -->
 
         <section
             class="trust-bar"
-            aria-label="Blue Harbor Dispatch benefits"
+            aria-labelledby="trust-title"
         >
+
+            <!-- Visually hidden heading for semantic structure -->
+
+            <h2
+                id="trust-title"
+                class="sr-only"
+            >
+                Why carriers choose Blue Harbor Dispatch
+            </h2>
+
 
             <div class="container trust-grid">
 
 
-                <div
+                <!-- ==========================
+                     TRUST ITEM 01
+                =========================== -->
+
+                <article
                     class="trust-card"
                     data-aos="fade-up"
                     data-aos-delay="0"
+                    data-aos-once="true"
                 >
 
-                    <div class="trust-icon">
+                    <div
+                        class="trust-icon"
+                        aria-hidden="true"
+                    >
                         <span>01</span>
                     </div>
 
                     <div class="trust-content">
 
-                        <h3>24/7</h3>
+                        <h3>
+                            24/7
+                        </h3>
 
                         <p>
                             Dedicated Dispatch Support
@@ -320,22 +383,32 @@
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <div
+                <!-- ==========================
+                     TRUST ITEM 02
+                =========================== -->
+
+                <article
                     class="trust-card"
                     data-aos="fade-up"
                     data-aos-delay="100"
+                    data-aos-once="true"
                 >
 
-                    <div class="trust-icon">
+                    <div
+                        class="trust-icon"
+                        aria-hidden="true"
+                    >
                         <span>02</span>
                     </div>
 
                     <div class="trust-content">
 
-                        <h3>Nationwide</h3>
+                        <h3>
+                            Nationwide
+                        </h3>
 
                         <p>
                             Serving All 48 States
@@ -343,22 +416,32 @@
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <div
+                <!-- ==========================
+                     TRUST ITEM 03
+                =========================== -->
+
+                <article
                     class="trust-card"
                     data-aos="fade-up"
                     data-aos-delay="200"
+                    data-aos-once="true"
                 >
 
-                    <div class="trust-icon">
+                    <div
+                        class="trust-icon"
+                        aria-hidden="true"
+                    >
                         <span>03</span>
                     </div>
 
                     <div class="trust-content">
 
-                        <h3>Fast</h3>
+                        <h3>
+                            Fast
+                        </h3>
 
                         <p>
                             Broker &amp; Driver Communication
@@ -366,22 +449,32 @@
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <div
+                <!-- ==========================
+                     TRUST ITEM 04
+                =========================== -->
+
+                <article
                     class="trust-card"
                     data-aos="fade-up"
                     data-aos-delay="300"
+                    data-aos-once="true"
                 >
 
-                    <div class="trust-icon">
+                    <div
+                        class="trust-icon"
+                        aria-hidden="true"
+                    >
                         <span>04</span>
                     </div>
 
                     <div class="trust-content">
 
-                        <h3>Higher Rates</h3>
+                        <h3>
+                            Higher Rates
+                        </h3>
 
                         <p>
                             Professional Load Negotiation
@@ -389,1823 +482,1967 @@
 
                     </div>
 
-                </div>
+                </article>
 
 
             </div>
 
         </section>
 
+      <!-- =====================================================
+     ABOUT SECTION
+====================================================== -->
 
+<section
+    id="about"
+    class="about"
+    aria-labelledby="about-title"
+>
 
-        <!-- =====================================================
-             ABOUT SECTION
-        ====================================================== -->
+    <div class="container about-grid">
 
-        <section
-            id="about"
-            class="about"
-            aria-labelledby="about-title"
+        <!-- About Image -->
+        <div
+            class="about-image"
+            data-aos="fade-right"
+            data-aos-duration="900"
+            data-aos-easing="ease-out-cubic"
+            data-aos-once="true"
         >
 
-            <div class="container about-grid">
+            <img
+                src="images/dispatcher-office.png"
+                alt="Blue Harbor Dispatch professional freight dispatch operations"
+                loading="lazy"
+                decoding="async"
+            >
+
+        </div>
 
 
-                <!-- About Image -->
-
-                <div
-                    class="about-image"
-                    data-aos="fade-right"
-                    data-aos-duration="900"
-                >
-
-                    <img
-                        src="images/dispatcher-office.png"
-                        alt="Professional truck dispatcher coordinating freight operations"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <!-- About Content -->
-
-                <div
-                    class="about-text"
-                    data-aos="fade-left"
-                    data-aos-delay="120"
-                >
-
-                    <span class="section-eyebrow">
-                        WHO WE ARE
-                    </span>
-
-
-                    <h2 id="about-title">
-                        The Dispatch Team Behind Your Success
-                    </h2>
-
-
-                    <p>
-
-                        At Blue Harbor Dispatch, we partner with
-                        owner-operators and small trucking companies to
-                        simplify daily operations, maximize revenue, and
-                        keep every truck moving with confidence.
-
-                    </p>
-
-
-                    <p>
-
-                        While you stay focused on the road, we handle the
-                        logistics that keep your business running
-                        efficiently—from finding profitable freight and
-                        negotiating stronger rates to managing broker
-                        communication, paperwork, appointments, and load
-                        updates.
-
-                    </p>
-
-
-                    <div class="about-highlight">
-
-                        <span class="about-highlight-line"></span>
-
-                        <p>
-                            Your truck stays moving.
-                            <strong>
-                                We handle what happens behind the scenes.
-                            </strong>
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             MISSION / GOAL BREAK
-        ====================================================== -->
-
-        <section
-            class="goal-break"
-            aria-labelledby="mission-title"
+        <!-- About Content -->
+        <div
+            class="about-text"
+            data-aos="fade-left"
+            data-aos-delay="120"
+            data-aos-duration="900"
+            data-aos-easing="ease-out-cubic"
+            data-aos-once="true"
         >
 
-            <div class="container">
+            <span class="section-eyebrow">
+                WHO WE ARE
+            </span>
 
-                <div
-                    class="goal-content"
-                    data-aos="zoom-in"
-                    data-aos-duration="900"
-                >
+            <h2 id="about-title">
+                The Dispatch Team Behind Your Success
+            </h2>
 
+            <p>
+                At Blue Harbor Dispatch, we partner with
+                owner-operators and small trucking companies to
+                simplify daily operations, maximize revenue, and
+                keep every truck moving with confidence.
+            </p>
 
-                    <span class="goal-label">
-                        OUR MISSION
-                    </span>
-
-
-                    <h2 id="mission-title">
-
-                        More Miles.
-
-                        <span>
-                            Higher Revenue.
-                        </span>
-
-                        Less Downtime.
-
-                    </h2>
+            <p>
+                While you stay focused on the road, we handle the
+                logistics behind the scenes—from finding profitable
+                freight and negotiating stronger rates to managing
+                broker communication, paperwork, appointments, and
+                load updates.
+            </p>
 
 
-                    <p>
+            <!-- Key Message -->
+            <div class="about-highlight">
 
-                        We help owner-operators and small fleets maximize
-                        revenue through reliable dispatching, stronger rate
-                        negotiations, strategic load planning, and responsive
-                        support—so you can stay focused on the road.
+                <span
+                    class="about-highlight-line"
+                    aria-hidden="true"
+                ></span>
 
-                    </p>
-
-
-                </div>
+                <p>
+                    Your truck stays moving.
+                    <strong>
+                        We handle what happens behind the scenes.
+                    </strong>
+                </p>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MISSION / GOAL BREAK
+====================================================== -->
+
+<section
+    class="goal-break"
+    aria-labelledby="mission-title"
+>
+
+    <div class="container">
+
+        <div
+            class="goal-content"
+            data-aos="zoom-in"
+            data-aos-duration="900"
+            data-aos-easing="ease-out-cubic"
+            data-aos-once="true"
+        >
+
+            <span class="goal-label">
+                OUR MISSION
+            </span>
+
+            <h2 id="mission-title">
+                More Miles.
+                <span>Higher Revenue.</span>
+                Less Downtime.
+            </h2>
+
+            <p>
+                We help owner-operators and small fleets maximize
+                revenue through reliable dispatching, stronger rate
+                negotiations, strategic load planning, and responsive
+                support—so you can stay focused on the road.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
                 <!-- =====================================================
              SERVICES SECTION
         ====================================================== -->
 
-        <section
-            id="services"
-            class="services"
-            aria-labelledby="services-title"
+       <!-- =====================================================
+     SERVICES SECTION
+====================================================== -->
+
+<section
+    id="services"
+    class="services"
+    aria-labelledby="services-title"
+>
+
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div
+            class="section-heading services-heading"
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out-cubic"
+            data-aos-once="true"
         >
 
-            <div class="container">
+            <span class="section-eyebrow">
+                WHAT WE DO
+            </span>
+
+            <h2 id="services-title">
+                Dispatch Solutions Built for Every Operation
+            </h2>
+
+            <p>
+                From dry vans to power-only operations, we provide
+                dedicated dispatch support designed around the way
+                you run your truck.
+            </p>
+
+        </div>
 
 
-                <!-- Section Heading -->
+        <!-- =================================================
+             DRY VAN
+        ================================================== -->
 
-                <div
-                    class="section-heading services-heading"
-                    data-aos="fade-up"
-                >
+        <div class="service-row">
 
-                    <span class="section-eyebrow">
-                        WHAT WE DO
-                    </span>
+            <div
+                class="service-content"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
 
-                    <h2 id="services-title">
-                        Dispatch Solutions Built for Every Operation
-                    </h2>
+                <span class="service-name">
+                    Dry Van Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Stay Loaded.
+                    <span>Stay Profitable.</span>
+                </h3>
+
+                <div class="service-glass">
 
                     <p>
-                        From dry vans to power-only operations, we provide
-                        dedicated dispatch support designed around the way
-                        you run your truck.
+                        We find profitable dry van loads, negotiate
+                        strong rates, and keep your truck moving
+                        with minimal downtime.
                     </p>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     DRY VAN
-                ================================================== -->
-
-                <div class="service-row">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-right"
-                    >
-
-                        <span class="service-name">
-                            Dry Van Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Stay Loaded.
-                            <span>Stay Profitable.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                We find profitable dry van loads, negotiate
-                                strong rates, and keep your truck moving
-                                with minimal downtime.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-left"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-dry-van.png"
-                                alt="Dry Van Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     REEFER
-                ================================================== -->
-
-                <div class="service-row reverse">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-left"
-                    >
-
-                        <span class="service-name">
-                            Reefer Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Fresh Freight.
-                            <span>Delivered Right.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                Efficient refrigerated load planning with
-                                dependable scheduling and broker coordination
-                                for time-sensitive freight.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-right"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-reefer.png"
-                                alt="Reefer Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     FLATBED
-                ================================================== -->
-
-                <div class="service-row">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-right"
-                    >
-
-                        <span class="service-name">
-                            Flatbed Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Heavy Loads.
-                            <span>Expertly Managed.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                Professional dispatch support for flatbed
-                                carriers, including route planning and
-                                secure freight coordination.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-left"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-flatbed.png"
-                                alt="Flatbed Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     HOTSHOT
-                ================================================== -->
-
-                <div class="service-row reverse">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-left"
-                    >
-
-                        <span class="service-name">
-                            Hotshot Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Fast Loads.
-                            <span>Faster Revenue.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                Quick load sourcing and efficient dispatch
-                                solutions built specifically for hotshot
-                                operators.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-right"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-hotshot.png"
-                                alt="Hotshot Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     BOX TRUCK
-                ================================================== -->
-
-                <div class="service-row">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-right"
-                    >
-
-                        <span class="service-name">
-                            Box Truck Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Local Routes.
-                            <span>Reliable Income.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                Helping box truck businesses stay loaded with
-                                dependable freight and efficient scheduling.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-left"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-box-truck.png"
-                                alt="Box Truck Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     POWER ONLY
-                ================================================== -->
-
-                <div class="service-row reverse">
-
-                    <div
-                        class="service-content"
-                        data-aos="fade-left"
-                    >
-
-                        <span class="service-name">
-                            Power Only Dispatch
-                        </span>
-
-                        <h3 class="service-title">
-                            Hook Up.
-                            <span>Haul More.</span>
-                        </h3>
-
-                        <div class="service-glass">
-
-                            <p>
-                                Connecting your tractor with reliable trailer
-                                opportunities while maximizing revenue and
-                                minimizing downtime.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="service-image"
-                        data-aos="fade-right"
-                    >
-
-                        <div class="service-circle">
-
-                            <img
-                                src="images/service-power-only.png"
-                                alt="Power Only Dispatch"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-                     INCLUDED SERVICES
-                ================================================== -->
-
-                <div
-                    class="included-services"
-                    data-aos="fade-up"
-                >
-
-                    <div class="included-heading">
-
-                        <span class="section-eyebrow">
-                            WHAT'S INCLUDED
-                        </span>
-
-                        <h2>
-                            Every Dispatch Includes
-                        </h2>
-
-                        <p>
-                            The essential support you need to spend less time
-                            managing freight and more time moving it.
-                        </p>
-
-                    </div>
-
-
-                    <div class="included-grid">
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                Rate Negotiation
-                            </span>
-
-                        </div>
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                Route Planning
-                            </span>
-
-                        </div>
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                Broker Communication
-                            </span>
-
-                        </div>
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                Paperwork Management
-                            </span>
-
-                        </div>
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                Appointment Scheduling
-                            </span>
-
-                        </div>
-
-
-                        <div class="included-item">
-
-                            <span class="included-check">
-                                ✓
-                            </span>
-
-                            <span>
-                                24/7 Dispatch Support
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-                <!-- =====================================================
-             WHY CHOOSE US
-        ====================================================== -->
-
-        <section
-            id="why"
-            class="why-us"
-            aria-labelledby="why-title"
-        >
-
-            <div class="container">
-
-
-                <!-- Section Heading -->
-
-                <div class="section-heading why-heading-wrap">
-
-                    <span
-                        class="section-eyebrow"
-                        data-aos="fade-up"
-                    >
-                        WHY BLUE HARBOR
-                    </span>
-
-                    <h2
-                        id="why-title"
-                        class="why-heading"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                    >
-                        Your Competitive Advantage
-                    </h2>
-
-                    <p
-                        class="why-subtitle"
-                        data-aos="fade-up"
-                        data-aos-delay="150"
-                    >
-                        More than dispatch—we become an extension of your
-                        business, helping you stay loaded, profitable, and
-                        focused on the road.
-                    </p>
-
-                </div>
-
-
-
-                <!-- Main Visual -->
-
-                <div
-                    class="why-image"
-                    data-aos="zoom-in"
-                    data-aos-delay="250"
-                >
-
-                    <img
-                        src="images/why-choose-us.png"
-                        alt="Blue Harbor Dispatch operations and logistics support"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-
-                <!-- Advantages -->
-
-                <div class="advantage-grid">
-
-
-                    <!-- Advantage 01 -->
-
-                    <article
-                        class="advantage-card"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                    >
-
-                        <span class="advantage-number">
-                            01
-                        </span>
-
-                        <h3>
-                            Better Rates
-                        </h3>
-
-                        <p>
-                            Every load is professionally negotiated to
-                            maximize your revenue and protect your bottom line.
-                        </p>
-
-                    </article>
-
-
-                    <!-- Advantage 02 -->
-
-                    <article
-                        class="advantage-card"
-                        data-aos="fade-up"
-                        data-aos-delay="180"
-                    >
-
-                        <span class="advantage-number">
-                            02
-                        </span>
-
-                        <h3>
-                            Less Downtime
-                        </h3>
-
-                        <p>
-                            Strategic planning keeps your truck loaded,
-                            reduces empty miles, and helps increase weekly
-                            earnings.
-                        </p>
-
-                    </article>
-
-
-                    <!-- Advantage 03 -->
-
-                    <article
-                        class="advantage-card"
-                        data-aos="fade-up"
-                        data-aos-delay="260"
-                    >
-
-                        <span class="advantage-number">
-                            03
-                        </span>
-
-                        <h3>
-                            Fast Response
-                        </h3>
-
-                        <p>
-                            Quick communication with brokers, shippers, and
-                            drivers helps keep every load on schedule.
-                        </p>
-
-                    </article>
-
-
-                    <!-- Advantage 04 -->
-
-                    <article
-                        class="advantage-card"
-                        data-aos="fade-up"
-                        data-aos-delay="340"
-                    >
-
-                        <span class="advantage-number">
-                            04
-                        </span>
-
-                        <h3>
-                            Complete Support
-                        </h3>
-
-                        <p>
-                            Appointments, paperwork, updates, and broker
-                            communication—we handle the details behind the
-                            scenes.
-                        </p>
-
-                    </article>
-
 
                 </div>
 
             </div>
 
-        </section>
 
+            <div
+                class="service-image"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
 
+                <div class="service-circle">
 
-        <!-- =====================================================
-             PROCESS / HOW IT WORKS
-        ====================================================== -->
-
-        <section
-            class="process"
-            id="process"
-            aria-labelledby="process-title"
-        >
-
-            <div class="container">
-
-
-                <!-- Process Heading -->
-
-                <div class="section-heading process-heading-wrap">
-
-                    <span
-                        class="section-eyebrow"
-                        data-aos="fade-up"
+                    <img
+                        src="images/service-dry-van.png"
+                        alt="Dry van truck used for freight transportation"
+                        loading="lazy"
+                        decoding="async"
                     >
-                        HOW IT WORKS
-                    </span>
 
-                    <h2
-                        id="process-title"
-                        class="process-heading"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                    >
-                        Getting Started Is Simple
-                    </h2>
+                </div>
 
-                    <p
-                        class="process-subtitle"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        From your first call to your next load, we make the
-                        entire dispatch process smooth, transparent, and
-                        hassle-free.
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             REEFER
+        ================================================== -->
+
+        <div class="service-row reverse">
+
+            <div
+                class="service-content"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <span class="service-name">
+                    Reefer Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Fresh Freight.
+                    <span>Delivered Right.</span>
+                </h3>
+
+                <div class="service-glass">
+
+                    <p>
+                        Efficient refrigerated load planning with
+                        dependable scheduling and broker coordination
+                        for time-sensitive freight.
                     </p>
 
                 </div>
 
+            </div>
 
 
-                <!-- Process Visual -->
+            <div
+                class="service-image"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
 
-                <div
-                    class="process-image"
-                    data-aos="zoom-in"
-                    data-aos-delay="250"
-                >
+                <div class="service-circle">
 
                     <img
-                        src="images/how-it-works.png"
-                        alt="Blue Harbor Dispatch workflow"
+                        src="images/service-reefer.png"
+                        alt="Refrigerated reefer truck for temperature-sensitive freight"
                         loading="lazy"
+                        decoding="async"
                     >
 
                 </div>
 
+            </div>
+
+        </div>
 
 
-                <!-- Timeline -->
+        <!-- =================================================
+             FLATBED
+        ================================================== -->
 
-                <div class="timeline">
+        <div class="service-row">
+
+            <div
+                class="service-content"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <span class="service-name">
+                    Flatbed Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Heavy Loads.
+                    <span>Expertly Managed.</span>
+                </h3>
+
+                <div class="service-glass">
+
+                    <p>
+                        Professional dispatch support for flatbed
+                        carriers, including route planning and
+                        secure freight coordination.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-                    <!-- Timeline Line -->
+            <div
+                class="service-image"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
 
-                    <div
-                        class="timeline-line"
+                <div class="service-circle">
+
+                    <img
+                        src="images/service-flatbed.png"
+                        alt="Flatbed truck carrying open-deck freight"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             HOTSHOT
+        ================================================== -->
+
+        <div class="service-row reverse">
+
+            <div
+                class="service-content"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <span class="service-name">
+                    Hotshot Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Fast Loads.
+                    <span>Faster Revenue.</span>
+                </h3>
+
+                <div class="service-glass">
+
+                    <p>
+                        Quick load sourcing and efficient dispatch
+                        solutions built specifically for hotshot
+                        operators.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="service-image"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <div class="service-circle">
+
+                    <img
+                        src="images/service-hotshot.png"
+                        alt="Hotshot pickup truck and trailer for expedited freight"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BOX TRUCK
+        ================================================== -->
+
+        <div class="service-row">
+
+            <div
+                class="service-content"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <span class="service-name">
+                    Box Truck Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Local Routes.
+                    <span>Reliable Income.</span>
+                </h3>
+
+                <div class="service-glass">
+
+                    <p>
+                        Helping box truck businesses stay loaded with
+                        dependable freight and efficient scheduling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="service-image"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <div class="service-circle">
+
+                    <img
+                        src="images/service-box-truck.png"
+                        alt="Box truck used for local and regional freight delivery"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             POWER ONLY
+        ================================================== -->
+
+        <div class="service-row reverse">
+
+            <div
+                class="service-content"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <span class="service-name">
+                    Power Only Dispatch
+                </span>
+
+                <h3 class="service-title">
+                    Hook Up.
+                    <span>Haul More.</span>
+                </h3>
+
+                <div class="service-glass">
+
+                    <p>
+                        Connecting your tractor with reliable trailer
+                        opportunities while maximizing revenue and
+                        minimizing downtime.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="service-image"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-delay="120"
+                data-aos-easing="ease-out-cubic"
+                data-aos-once="true"
+            >
+
+                <div class="service-circle">
+
+                    <img
+                        src="images/service-power-only.png"
+                        alt="Power-only tractor prepared to haul a separate trailer"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INCLUDED SERVICES
+        ================================================== -->
+
+        <div
+            class="included-services"
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out-cubic"
+            data-aos-once="true"
+        >
+
+            <div class="included-heading">
+
+                <span class="section-eyebrow">
+                    WHAT'S INCLUDED
+                </span>
+
+                <h2>
+                    Every Dispatch Includes
+                </h2>
+
+                <p>
+                    The essential support you need to spend less time
+                    managing freight and more time moving it.
+                </p>
+
+            </div>
+
+
+            <div class="included-grid">
+
+                <div class="included-item">
+                    <span
+                        class="included-check"
                         aria-hidden="true"
-                    ></div>
+                    >✓</span>
+
+                    <span>
+                        Rate Negotiation
+                    </span>
+                </div>
 
 
+                <div class="included-item">
+                    <span
+                        class="included-check"
+                        aria-hidden="true"
+                    >✓</span>
 
-                    <!-- Step 01 -->
-
-                    <article
-                        class="step-card"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                    >
-
-                        <div class="step-number">
-                            01
-                        </div>
-
-                        <div class="step-content">
-
-                            <h3>
-                                Contact Our Team
-                            </h3>
-
-                            <p>
-                                Reach out and tell us about your truck,
-                                preferred lanes, and operating schedule.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    <span>
+                        Route Planning
+                    </span>
+                </div>
 
 
+                <div class="included-item">
+                    <span
+                        class="included-check"
+                        aria-hidden="true"
+                    >✓</span>
 
-                    <!-- Step 02 -->
-
-                    <article
-                        class="step-card"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-
-                        <div class="step-number">
-                            02
-                        </div>
-
-                        <div class="step-content">
-
-                            <h3>
-                                We Build Your Dispatch Plan
-                            </h3>
-
-                            <p>
-                                We understand your business and create a
-                                dispatch strategy tailored to your goals.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    <span>
+                        Broker Communication
+                    </span>
+                </div>
 
 
+                <div class="included-item">
+                    <span
+                        class="included-check"
+                        aria-hidden="true"
+                    >✓</span>
 
-                    <!-- Step 03 -->
-
-                    <article
-                        class="step-card"
-                        data-aos="fade-up"
-                        data-aos-delay="300"
-                    >
-
-                        <div class="step-number">
-                            03
-                        </div>
-
-                        <div class="step-content">
-
-                            <h3>
-                                We Find &amp; Negotiate Loads
-                            </h3>
-
-                            <p>
-                                Our dispatchers secure profitable freight while
-                                handling broker communication and paperwork.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    <span>
+                        Paperwork Management
+                    </span>
+                </div>
 
 
+                <div class="included-item">
+                    <span
+                        class="included-check"
+                        aria-hidden="true"
+                    >✓</span>
 
-                    <!-- Step 04 -->
-
-                    <article
-                        class="step-card"
-                        data-aos="fade-up"
-                        data-aos-delay="400"
-                    >
-
-                        <div class="step-number">
-                            04
-                        </div>
-
-                        <div class="step-content">
-
-                            <h3>
-                                You Drive. We Handle the Rest.
-                            </h3>
-
-                            <p>
-                                Stay focused on the road while we manage
-                                dispatching, appointments, updates, and
-                                ongoing support.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    <span>
+                        Appointment Scheduling
+                    </span>
+                </div>
 
 
+                <div class="included-item">
+                    <span
+                        class="included-check"
+                        aria-hidden="true"
+                    >✓</span>
+
+                    <span>
+                        24/7 Dispatch Support
+                    </span>
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-                <!-- =====================================================
-             FAQ SECTION
-        ====================================================== -->
+    </div>
 
-        <section
-            class="faq"
-            id="faq"
-            aria-labelledby="faq-title"
+</section>
+<!-- =====================================================
+     WHY CHOOSE US
+====================================================== -->
+
+<section
+    id="why"
+    class="why-us"
+    aria-labelledby="why-title"
+>
+
+    <div class="container">
+
+        <!-- Section Heading -->
+
+        <header class="section-heading why-heading-wrap">
+
+            <span
+                class="section-eyebrow"
+                data-aos="fade-up"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+                WHY BLUE HARBOR
+            </span>
+
+            <h2
+                id="why-title"
+                class="why-heading"
+                data-aos="fade-up"
+                data-aos-delay="80"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Your Competitive Advantage
+            </h2>
+
+            <p
+                class="why-subtitle"
+                data-aos="fade-up"
+                data-aos-delay="160"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                More than dispatch—we become an extension of your
+                business, helping you stay loaded, negotiate smarter,
+                and keep your focus where it belongs: on the road.
+            </p>
+
+        </header>
+
+
+        <!-- Main Visual -->
+
+        <figure
+            class="why-image"
+            data-aos="zoom-in"
+            data-aos-delay="220"
+            data-aos-duration="900"
+            data-aos-once="true"
         >
 
-            <div class="container">
+            <img
+                src="images/why-choose-us.png"
+                alt="Blue Harbor Dispatch operations and logistics support"
+                loading="lazy"
+                decoding="async"
+            >
+
+        </figure>
 
 
-                <!-- FAQ Heading -->
+        <!-- Advantages -->
 
-                <div class="section-heading faq-heading-wrap">
+        <div class="advantage-grid">
 
-                    <span
-                        class="section-eyebrow"
-                        data-aos="fade-up"
-                    >
-                        FAQ
-                    </span>
 
-                    <h2
-                        id="faq-title"
-                        class="faq-heading"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                    >
-                        Questions? We've Got Answers.
-                    </h2>
+            <!-- Advantage 01 -->
 
-                    <p
-                        class="faq-subtitle"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        Everything you need to know before partnering with
-                        Blue Harbor Dispatch.
+            <article
+                class="advantage-card"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <span
+                    class="advantage-number"
+                    aria-hidden="true"
+                >
+                    01
+                </span>
+
+                <h3>
+                    Better Rates
+                </h3>
+
+                <p>
+                    We negotiate every load with your revenue in mind,
+                    helping you secure stronger rates and protect your
+                    bottom line.
+                </p>
+
+            </article>
+
+
+            <!-- Advantage 02 -->
+
+            <article
+                class="advantage-card"
+                data-aos="fade-up"
+                data-aos-delay="180"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <span
+                    class="advantage-number"
+                    aria-hidden="true"
+                >
+                    02
+                </span>
+
+                <h3>
+                    Less Downtime
+                </h3>
+
+                <p>
+                    Strategic load planning helps keep your truck moving,
+                    reduce unnecessary empty miles, and maximize productive
+                    driving time.
+                </p>
+
+            </article>
+
+
+            <!-- Advantage 03 -->
+
+            <article
+                class="advantage-card"
+                data-aos="fade-up"
+                data-aos-delay="260"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <span
+                    class="advantage-number"
+                    aria-hidden="true"
+                >
+                    03
+                </span>
+
+                <h3>
+                    Fast Response
+                </h3>
+
+                <p>
+                    We stay on top of broker, shipper, and driver
+                    communication so important updates never get lost
+                    between the miles.
+                </p>
+
+            </article>
+
+
+            <!-- Advantage 04 -->
+
+            <article
+                class="advantage-card"
+                data-aos="fade-up"
+                data-aos-delay="340"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <span
+                    class="advantage-number"
+                    aria-hidden="true"
+                >
+                    04
+                </span>
+
+                <h3>
+                    Complete Support
+                </h3>
+
+                <p>
+                    From appointments and paperwork to load updates and
+                    broker communication, we handle the details behind
+                    the scenes.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+   <!-- =====================================================
+     PROCESS / HOW IT WORKS
+====================================================== -->
+
+<section
+    class="process"
+    id="process"
+    aria-labelledby="process-title"
+>
+
+    <div class="container">
+
+        <!-- Process Heading -->
+
+        <header class="section-heading process-heading-wrap">
+
+            <span
+                class="section-eyebrow"
+                data-aos="fade-up"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+                HOW IT WORKS
+            </span>
+
+            <h2
+                id="process-title"
+                class="process-heading"
+                data-aos="fade-up"
+                data-aos-delay="80"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Getting Started Is Simple
+            </h2>
+
+            <p
+                class="process-subtitle"
+                data-aos="fade-up"
+                data-aos-delay="160"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                From your first conversation to your next load, we make
+                the dispatch process simple, transparent, and built around
+                your business.
+            </p>
+
+        </header>
+
+
+        <!-- Process Visual -->
+
+        <figure
+            class="process-image"
+            data-aos="zoom-in"
+            data-aos-delay="220"
+            data-aos-duration="900"
+            data-aos-once="true"
+        >
+
+            <img
+                src="images/how-it-works.png"
+                alt="Blue Harbor Dispatch workflow from carrier onboarding to ongoing load support"
+                loading="lazy"
+                decoding="async"
+            >
+
+        </figure>
+
+
+        <!-- Timeline -->
+
+        <div class="timeline">
+
+            <!-- Timeline Line -->
+
+            <div
+                class="timeline-line"
+                aria-hidden="true"
+            ></div>
+
+
+            <!-- Step 01 -->
+
+            <article
+                class="step-card"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <div
+                    class="step-number"
+                    aria-hidden="true"
+                >
+                    01
+                </div>
+
+                <div class="step-content">
+
+                    <h3>
+                        Tell Us About Your Truck
+                    </h3>
+
+                    <p>
+                        Tell us about your equipment, preferred lanes,
+                        operating schedule, and business goals so we can
+                        understand what works best for you.
                     </p>
 
                 </div>
 
-
-
-                <!-- FAQ List -->
-
-                <div class="faq-wrapper">
-
-                    <div class="faq-list">
-
-
-                        <!-- FAQ 01 -->
-
-                        <article
-                            class="faq-item active"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                        >
-
-                            <button
-                                class="faq-question"
-                                type="button"
-                                aria-expanded="true"
-                            >
-
-                                <span>
-                                    How do I get started?
-                                </span>
-
-                                <span
-                                    class="faq-toggle"
-                                    aria-hidden="true"
-                                >
-                                    +
-                                </span>
-
-                            </button>
-
-
-                            <div class="faq-answer">
-
-                                <p>
-                                    Simply contact us, tell us about your
-                                    truck and preferred lanes, and we'll build
-                                    a dispatch plan around your business.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- FAQ 02 -->
-
-                        <article
-                            class="faq-item"
-                            data-aos="fade-up"
-                            data-aos-delay="180"
-                        >
-
-                            <button
-                                class="faq-question"
-                                type="button"
-                                aria-expanded="false"
-                            >
-
-                                <span>
-                                    Do you work with owner-operators?
-                                </span>
-
-                                <span
-                                    class="faq-toggle"
-                                    aria-hidden="true"
-                                >
-                                    +
-                                </span>
-
-                            </button>
-
-
-                            <div class="faq-answer">
-
-                                <p>
-                                    Yes. We proudly work with owner-operators
-                                    and small trucking companies across
-                                    multiple equipment types.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- FAQ 03 -->
-
-                        <article
-                            class="faq-item"
-                            data-aos="fade-up"
-                            data-aos-delay="260"
-                        >
-
-                            <button
-                                class="faq-question"
-                                type="button"
-                                aria-expanded="false"
-                            >
-
-                                <span>
-                                    What equipment do you dispatch?
-                                </span>
-
-                                <span
-                                    class="faq-toggle"
-                                    aria-hidden="true"
-                                >
-                                    +
-                                </span>
-
-                            </button>
-
-
-                            <div class="faq-answer">
-
-                                <p>
-                                    Dry Van, Reefer, Flatbed, Hotshot,
-                                    Box Truck, and Power Only.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- FAQ 04 -->
-
-                        <article
-                            class="faq-item"
-                            data-aos="fade-up"
-                            data-aos-delay="340"
-                        >
-
-                            <button
-                                class="faq-question"
-                                type="button"
-                                aria-expanded="false"
-                            >
-
-                                <span>
-                                    Can I choose my own loads?
-                                </span>
-
-                                <span
-                                    class="faq-toggle"
-                                    aria-hidden="true"
-                                >
-                                    +
-                                </span>
-
-                            </button>
-
-
-                            <div class="faq-answer">
-
-                                <p>
-                                    Absolutely. Every load is presented for
-                                    your approval before booking. You always
-                                    remain in control of the freight you haul.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- FAQ 05 -->
-
-                        <article
-                            class="faq-item"
-                            data-aos="fade-up"
-                            data-aos-delay="420"
-                        >
-
-                            <button
-                                class="faq-question"
-                                type="button"
-                                aria-expanded="false"
-                            >
-
-                                <span>
-                                    How are dispatch fees charged?
-                                </span>
-
-                                <span
-                                    class="faq-toggle"
-                                    aria-hidden="true"
-                                >
-                                    +
-                                </span>
-
-                            </button>
-
-
-                            <div class="faq-answer">
-
-                                <p>
-                                    Our pricing is transparent with no hidden
-                                    surprises. We'll explain the fee structure
-                                    clearly during your consultation before
-                                    you decide to move forward.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
+            </article>
+
+
+            <!-- Step 02 -->
+
+            <article
+                class="step-card"
+                data-aos="fade-up"
+                data-aos-delay="180"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <div
+                    class="step-number"
+                    aria-hidden="true"
+                >
+                    02
+                </div>
+
+                <div class="step-content">
+
+                    <h3>
+                        We Build Your Dispatch Plan
+                    </h3>
+
+                    <p>
+                        We create a dispatch strategy around your equipment,
+                        preferred lanes, schedule, and revenue objectives.
+                    </p>
 
                 </div>
 
-            </div>
-
-        </section>
+            </article>
 
 
+            <!-- Step 03 -->
 
-        <!-- =====================================================
-             CONSULTATION CTA
-        ====================================================== -->
+            <article
+                class="step-card"
+                data-aos="fade-up"
+                data-aos-delay="260"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
 
-        <section
-            class="consultation"
-            id="consultation"
-            aria-labelledby="consultation-title"
-        >
+                <div
+                    class="step-number"
+                    aria-hidden="true"
+                >
+                    03
+                </div>
 
-            <div class="container">
+                <div class="step-content">
 
-                <div class="cta-panel">
+                    <h3>
+                        We Find &amp; Negotiate Loads
+                    </h3>
+
+                    <p>
+                        We search for suitable freight, negotiate with
+                        brokers, and handle the communication and paperwork
+                        needed to get each approved load booked.
+                    </p>
+
+                </div>
+
+            </article>
 
 
-                    <!-- CTA Content -->
+            <!-- Step 04 -->
 
-                    <div
-                        class="cta-content"
-                        data-aos="fade-right"
+            <article
+                class="step-card"
+                data-aos="fade-up"
+                data-aos-delay="340"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+
+                <div
+                    class="step-number"
+                    aria-hidden="true"
+                >
+                    04
+                </div>
+
+                <div class="step-content">
+
+                    <h3>
+                        You Drive. We Handle the Rest.
+                    </h3>
+
+                    <p>
+                        Stay focused on the road while we manage broker
+                        communication, appointments, paperwork, load
+                        updates, and ongoing dispatch support.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ SECTION
+====================================================== -->
+
+<section
+    class="faq"
+    id="faq"
+    aria-labelledby="faq-title"
+>
+
+    <div class="container">
+
+        <!-- FAQ Heading -->
+
+        <header class="section-heading faq-heading-wrap">
+
+            <span
+                class="section-eyebrow"
+                data-aos="fade-up"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+                FAQ
+            </span>
+
+            <h2
+                id="faq-title"
+                class="faq-heading"
+                data-aos="fade-up"
+                data-aos-delay="80"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Questions? We've Got Answers.
+            </h2>
+
+            <p
+                class="faq-subtitle"
+                data-aos="fade-up"
+                data-aos-delay="160"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Everything you need to know before partnering with
+                Blue Harbor Dispatch.
+            </p>
+
+        </header>
+
+
+        <!-- FAQ List -->
+
+        <div class="faq-wrapper">
+
+            <div
+                class="faq-list"
+                role="list"
+            >
+
+
+                <!-- FAQ 01 -->
+
+                <article
+                    class="faq-item active"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    data-aos-duration="700"
+                    data-aos-once="true"
+                    role="listitem"
+                >
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                        aria-expanded="true"
+                        aria-controls="faq-answer-1"
                     >
 
-                        <span class="cta-label">
-                            LET'S GET STARTED
+                        <span>
+                            How do I get started?
                         </span>
 
+                        <span
+                            class="faq-toggle"
+                            aria-hidden="true"
+                        >
+                            +
+                        </span>
 
-                        <h2 id="consultation-title">
-                            Ready to Keep Your Truck Moving?
-                        </h2>
+                    </button>
 
+
+                    <div
+                        class="faq-answer"
+                        id="faq-answer-1"
+                    >
 
                         <p>
-                            More miles. Better rates. Zero dispatch headaches.
-                            Let Blue Harbor Dispatch become your trusted
-                            dispatch partner while you focus on growing your
-                            business.
+                            Simply contact us, tell us about your truck,
+                            equipment, and preferred lanes, and we'll
+                            build a dispatch plan around your business.
                         </p>
 
-
-                        <!-- CTA Buttons -->
-
-                        <div class="cta-buttons">
-
-                            <a
-                                href="#contact"
-                                class="btn"
-                            >
-                                Get Your Free Consultation
-                            </a>
-
-
-                            <a
-                                href="https://wa.me/923475710193"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn-outline"
-                            >
-                                Chat on WhatsApp
-                            </a>
-
-                        </div>
-
                     </div>
 
+                </article>
 
 
-                    <!-- CTA Image -->
+                <!-- FAQ 02 -->
 
-                    <div
-                        class="cta-image"
-                        data-aos="fade-left"
-                        data-aos-delay="150"
+                <article
+                    class="faq-item"
+                    data-aos="fade-up"
+                    data-aos-delay="180"
+                    data-aos-duration="700"
+                    data-aos-once="true"
+                    role="listitem"
+                >
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-2"
                     >
 
-                        <img
-                            src="images/contact-support.png"
-                            alt="Blue Harbor Dispatch customer support"
-                            loading="lazy"
+                        <span>
+                            Do you work with owner-operators?
+                        </span>
+
+                        <span
+                            class="faq-toggle"
+                            aria-hidden="true"
                         >
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="faq-answer"
+                        id="faq-answer-2"
+                    >
+
+                        <p>
+                            Yes. We work with owner-operators and small
+                            trucking companies across multiple equipment
+                            types and operating preferences.
+                        </p>
 
                     </div>
 
+                </article>
+
+
+                <!-- FAQ 03 -->
+
+                <article
+                    class="faq-item"
+                    data-aos="fade-up"
+                    data-aos-delay="260"
+                    data-aos-duration="700"
+                    data-aos-once="true"
+                    role="listitem"
+                >
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-3"
+                    >
+
+                        <span>
+                            What equipment do you dispatch?
+                        </span>
+
+                        <span
+                            class="faq-toggle"
+                            aria-hidden="true"
+                        >
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="faq-answer"
+                        id="faq-answer-3"
+                    >
+
+                        <p>
+                            We dispatch Dry Van, Reefer, Flatbed, Hotshot,
+                            Box Truck, and Power Only equipment.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 04 -->
+
+                <article
+                    class="faq-item"
+                    data-aos="fade-up"
+                    data-aos-delay="340"
+                    data-aos-duration="700"
+                    data-aos-once="true"
+                    role="listitem"
+                >
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-4"
+                    >
+
+                        <span>
+                            Can I choose my own loads?
+                        </span>
+
+                        <span
+                            class="faq-toggle"
+                            aria-hidden="true"
+                        >
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="faq-answer"
+                        id="faq-answer-4"
+                    >
+
+                        <p>
+                            Absolutely. Every load is presented for your
+                            approval before booking. You always remain in
+                            control of the freight you choose to haul.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 05 -->
+
+                <article
+                    class="faq-item"
+                    data-aos="fade-up"
+                    data-aos-delay="420"
+                    data-aos-duration="700"
+                    data-aos-once="true"
+                    role="listitem"
+                >
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-5"
+                    >
+
+                        <span>
+                            How are dispatch fees charged?
+                        </span>
+
+                        <span
+                            class="faq-toggle"
+                            aria-hidden="true"
+                        >
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="faq-answer"
+                        id="faq-answer-5"
+                    >
+
+                        <p>
+                            Our pricing is transparent with no hidden
+                            surprises. We'll explain the fee structure
+                            clearly during your consultation before you
+                            decide whether we're the right fit.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+ <!-- =====================================================
+     CONSULTATION CTA
+====================================================== -->
+
+<section
+    class="consultation"
+    id="consultation"
+    aria-labelledby="consultation-title"
+>
+
+    <div class="container">
+
+        <div class="cta-panel">
+
+            <!-- CTA Content -->
+
+            <div
+                class="cta-content"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-once="true"
+            >
+
+                <span class="cta-label">
+                    LET'S GET STARTED
+                </span>
+
+
+                <h2 id="consultation-title">
+                    Ready to Keep Your Truck Moving?
+                </h2>
+
+
+                <p>
+                    More miles. Better rates. Fewer dispatch headaches.
+                    Let Blue Harbor Dispatch handle the work behind the
+                    scenes while you stay focused on the road and growing
+                    your business.
+                </p>
+
+
+                <!-- CTA Buttons -->
+
+                <div class="cta-buttons">
+
+                    <a
+                        href="#contact"
+                        class="btn"
+                    >
+                        Get Your Free Consultation
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/923475710193"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline"
+                        aria-label="Chat with Blue Harbor Dispatch on WhatsApp"
+                    >
+                        Chat on WhatsApp
+                    </a>
 
                 </div>
 
             </div>
 
-        </section>
-                <!-- =====================================================
-             CONTACT SECTION
-        ====================================================== -->
 
-        <section
-            id="contact"
-            class="contact"
-            aria-labelledby="contact-title"
-        >
+            <!-- CTA Visual -->
 
-            <div class="container">
+            <div
+                class="cta-image"
+                data-aos="fade-left"
+                data-aos-delay="150"
+                data-aos-duration="900"
+                data-aos-once="true"
+            >
+
+                <img
+                    src="images/contact-support.png"
+                    alt="Blue Harbor Dispatch support team assisting trucking operations"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-                <!-- Contact Heading -->
 
-                <div class="section-heading contact-heading-wrap">
+<!-- =====================================================
+     CONTACT SECTION
+====================================================== -->
 
-                    <span
-                        class="section-eyebrow"
-                        data-aos="fade-up"
-                    >
-                        CONTACT US
+<section
+    class="contact"
+    id="contact"
+    aria-labelledby="contact-title"
+>
+
+    <div class="container">
+
+        <!-- Contact Heading -->
+
+        <header class="section-heading contact-heading-wrap">
+
+            <span
+                class="section-eyebrow"
+                data-aos="fade-up"
+                data-aos-duration="700"
+                data-aos-once="true"
+            >
+                CONTACT US
+            </span>
+
+
+            <h2
+                id="contact-title"
+                class="contact-heading"
+                data-aos="fade-up"
+                data-aos-delay="80"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Let's Grow Your Trucking Business Together
+            </h2>
+
+
+            <p
+                class="contact-subtitle"
+                data-aos="fade-up"
+                data-aos-delay="160"
+                data-aos-duration="800"
+                data-aos-once="true"
+            >
+                Tell us about your operation and we'll build a dispatch
+                strategy designed around your equipment, lanes, and
+                business goals.
+            </p>
+
+        </header>
+
+
+        <!-- Contact Layout -->
+
+        <div class="contact-layout">
+
+
+            <!-- =================================================
+                 CONTACT INFORMATION
+            ================================================== -->
+
+            <div
+                class="contact-info"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-once="true"
+            >
+
+                <div class="contact-info-card">
+
+                    <span class="contact-card-label">
+                        LET'S TALK
                     </span>
 
-                    <h2
-                        id="contact-title"
-                        class="contact-heading"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                    >
-                        Let's Grow Your Trucking Business Together
-                    </h2>
 
-                    <p
-                        class="contact-subtitle"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        Tell us about your operation and we'll build a
-                        dispatch strategy designed to maximize your revenue,
-                        reduce downtime, and keep your trucks moving with
-                        confidence.
+                    <h3>
+                        Ready to Move More Freight?
+                    </h3>
+
+
+                    <p>
+                        Whether you're an owner-operator or managing a
+                        small fleet, Blue Harbor Dispatch works alongside
+                        your business to find freight, negotiate rates,
+                        coordinate loads, and handle the details behind
+                        the scenes.
                     </p>
 
-                </div>
+
+                    <!-- Contact Benefits -->
+
+                    <ul class="contact-benefits">
+
+                        <li>
+                            Dedicated Dispatcher
+                        </li>
+
+                        <li>
+                            Professional Rate Negotiation
+                        </li>
+
+                        <li>
+                            Reduced Empty Miles
+                        </li>
+
+                        <li>
+                            No Long-Term Contracts
+                        </li>
+
+                        <li>
+                            Transparent Communication
+                        </li>
+
+                        <li>
+                            Fast Response Times
+                        </li>
+
+                    </ul>
 
 
-
-                <!-- Contact Layout -->
-
-                <div class="contact-layout">
-
-
-                    <!-- Contact Information -->
-
-                    <div
-                        class="contact-info"
-                        data-aos="fade-right"
-                    >
-
-                        <div class="contact-info-card">
-
-
-                            <span class="contact-card-label">
-                                LET'S TALK
-                            </span>
-
-
-                            <h3>
-                                Ready to Move More Freight?
-                            </h3>
-
-
-                            <p>
-                                Whether you're an owner-operator or managing
-                                a growing fleet, Blue Harbor Dispatch becomes
-                                an extension of your business—negotiating
-                                stronger rates, reducing downtime, and handling
-                                the details behind the scenes so you can stay
-                                focused on the road.
-                            </p>
-
-
-                            <!-- Contact Benefits -->
-
-                            <ul class="contact-benefits">
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    Dedicated Dispatcher
-                                </li>
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    Better Rate Negotiation
-                                </li>
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    Reduced Empty Miles
-                                </li>
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    No Long-Term Contracts
-                                </li>
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    Transparent Communication
-                                </li>
-
-                                <li>
-                                    <span aria-hidden="true">✓</span>
-                                    Fast Response Times
-                                </li>
-
-                            </ul>
-
-
-                            <div class="contact-note">
-
-                                Trusted dispatch support for
-                                Owner-Operators and Small Fleets across
-                                the United States.
-
-                            </div>
-
-
-                        </div>
-
+                    <div class="contact-note">
+                        Trusted dispatch support for owner-operators
+                        and small fleets across the United States.
                     </div>
-
-
-
-                    <!-- Contact Form -->
-
-                    <form
-                        id="contact-form"
-                        class="contact-form"
-                        data-aos="fade-left"
-                        data-aos-delay="150"
-                    >
-
-
-                        <!-- Web3Forms Configuration -->
-
-                        <input
-                            type="hidden"
-                            name="access_key"
-                            value="d529eb20-b017-4402-b617-c747e4b290df"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="subject"
-                            value="New Dispatch Consultation Request | Blue Harbor Dispatch"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="from_name"
-                            value="Blue Harbor Dispatch Contact Form"
-                        >
-
-
-                        <!-- Name + Email -->
-
-                        <div class="input-group">
-
-                            <div class="form-field">
-
-                                <label for="name">
-                                    Full Name
-                                </label>
-
-                                <input
-                                    id="name"
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your full name"
-                                    autocomplete="name"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="email">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    id="email"
-                                    type="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    autocomplete="email"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- Phone + Equipment -->
-
-                        <div class="input-group">
-
-                            <div class="form-field">
-
-                                <label for="phone">
-                                    Phone Number
-                                </label>
-
-                                <input
-                                    id="phone"
-                                    type="tel"
-                                    name="phone"
-                                    placeholder="Your phone number"
-                                    autocomplete="tel"
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="equipment">
-                                    Equipment Type
-                                </label>
-
-                                <input
-                                    id="equipment"
-                                    type="text"
-                                    name="equipment"
-                                    placeholder="Dry Van, Reefer, Flatbed..."
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- MC Number -->
-
-                        <div class="form-field">
-
-                            <label for="mc-number">
-                                MC Number
-                                <span>
-                                    Optional
-                                </span>
-                            </label>
-
-                            <input
-                                id="mc-number"
-                                type="text"
-                                name="mc_number"
-                                placeholder="Your MC number"
-                            >
-
-                        </div>
-
-
-
-                        <!-- Message -->
-
-                        <div class="form-field">
-
-                            <label for="message">
-                                Tell Us About Your Operation
-                            </label>
-
-                            <textarea
-                                id="message"
-                                rows="7"
-                                name="message"
-                                placeholder="Tell us about your truck, preferred lanes, fleet size, or anything else that will help us understand your dispatch needs..."
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-
-                        <!-- Submit -->
-
-                        <button
-                            type="submit"
-                            class="btn"
-                        >
-                            Request Free Consultation
-                        </button>
-
-
-                        <!-- Form Status -->
-
-                        <p
-                            id="form-status"
-                            class="form-status"
-                            role="status"
-                            aria-live="polite"
-                        ></p>
-
-
-                    </form>
-
 
                 </div>
 
             </div>
 
-        </section>
+
+
+            <!-- =================================================
+                 CONTACT FORM
+            ================================================== -->
+
+            <form
+                id="contact-form"
+                class="contact-form"
+                data-aos="fade-left"
+                data-aos-delay="150"
+                data-aos-duration="900"
+                data-aos-once="true"
+                novalidate
+            >
+
+                <!-- Web3Forms Configuration -->
+
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="d529eb20-b017-4402-b617-c747e4b290df"
+                >
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="New Dispatch Consultation Request | Blue Harbor Dispatch"
+                >
+
+                <input
+                    type="hidden"
+                    name="from_name"
+                    value="Blue Harbor Dispatch Contact Form"
+                >
+
+
+                <!-- Name + Email -->
+
+                <div class="input-group">
+
+                    <div class="form-field">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            placeholder="Your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            inputmode="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Phone + Equipment -->
+
+                <div class="input-group">
+
+                    <div class="form-field">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            id="phone"
+                            type="tel"
+                            name="phone"
+                            placeholder="Your phone number"
+                            autocomplete="tel"
+                            inputmode="tel"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="equipment">
+                            Equipment Type
+                        </label>
+
+                        <input
+                            id="equipment"
+                            type="text"
+                            name="equipment"
+                            placeholder="Dry Van, Reefer, Flatbed..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- MC Number -->
+
+                <div class="form-field">
+
+                    <label for="mc-number">
+                        MC Number
+                        <span>Optional</span>
+                    </label>
+
+                    <input
+                        id="mc-number"
+                        type="text"
+                        name="mc_number"
+                        placeholder="Your MC number"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- Message -->
+
+                <div class="form-field">
+
+                    <label for="message">
+                        Tell Us About Your Operation
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="7"
+                        name="message"
+                        placeholder="Tell us about your truck, preferred lanes, fleet size, or anything else that will help us understand your dispatch needs..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Request Free Consultation
+                </button>
+
+
+                <!-- Form Status -->
+
+                <p
+                    id="form-status"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+ </main>
 
 
 
-    </main>
+ <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
 
 
+        <!-- =================================================
+             BRAND
+        ================================================== -->
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+        <div
+            class="footer-brand"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-once="true"
+        >
 
-    <footer class="site-footer">
+            <div class="footer-brand-top">
 
-        <div class="container footer-grid">
-
-
-            <!-- Footer Brand -->
-
-            <div class="footer-brand">
-
-                <div class="footer-brand-top">
-
+                <a
+                    href="#home"
+                    aria-label="Blue Harbor Dispatch Home"
+                >
 
                     <img
                         src="images/logo.png"
                         alt="Blue Harbor Dispatch"
                         class="footer-logo"
+                        loading="lazy"
+                        decoding="async"
                     >
 
+                </a>
 
-                    <div>
 
-                        <h3>
-                            Blue Harbor Dispatch
-                        </h3>
+                <div>
 
-                        <p class="footer-slogan">
-                            Keeping Trucks Moving.<br>
-                            Keeping Businesses Growing.
-                        </p>
+                    <h3>
+                        Blue Harbor Dispatch
+                    </h3>
 
-                    </div>
-
+                    <p class="footer-slogan">
+                        Keeping Trucks Moving.<br>
+                        Keeping Businesses Growing.
+                    </p>
 
                 </div>
 
-
-                <p class="footer-text">
-                    Professional Truck Dispatch Solutions for
-                    Owner-Operators &amp; Small Fleets Across the
-                    United States.
-                </p>
-
-
             </div>
 
 
+            <p class="footer-text">
+                Professional truck dispatch solutions for
+                owner-operators and small fleets across the
+                United States.
+            </p>
 
-            <!-- Quick Links -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <ul>
-
-                    <li>
-                        <a href="#home">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#about">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#services">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#why">
-                            Why Choose Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#process">
-                            How It Works
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#faq">
-                            FAQ
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#contact">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
+        </div>
 
 
 
-            <!-- Footer Contact -->
+        <!-- =================================================
+             QUICK LINKS
+        ================================================== -->
 
-            <div class="footer-column">
+        <div
+            class="footer-column"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="800"
+            data-aos-once="true"
+        >
 
-                <h4>
-                    Contact
-                </h4>
+            <h4>
+                Quick Links
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#why">
+                        Why Choose Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#process">
+                        How It Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#faq">
+                        FAQ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
 
 
-                <p class="footer-label">
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <div
+            class="footer-column"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="800"
+            data-aos-once="true"
+        >
+
+            <h4>
+                Contact
+            </h4>
+
+
+            <div class="footer-contact-item">
+
+                <span class="footer-label">
                     Email
-                </p>
+                </span>
 
                 <a
                     href="mailto:blueharbordispatch@gmail.com"
@@ -2214,84 +2451,95 @@
                     blueharbordispatch@gmail.com
                 </a>
 
-
-                <br>
-                <br>
+            </div>
 
 
-                <p class="footer-label">
+            <div class="footer-contact-item">
+
+                <span class="footer-label">
                     WhatsApp
-                </p>
+                </span>
 
                 <a
                     href="https://wa.me/923475710193"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="footer-contact-link"
+                    aria-label="Contact Blue Harbor Dispatch on WhatsApp"
                 >
                     +92 347 5710193
                 </a>
 
             </div>
 
-
         </div>
 
 
+    </div>
 
-        <!-- Footer Divider -->
+
+
+    <!-- =================================================
+         FOOTER DIVIDER
+    ================================================== -->
+
+    <div class="container">
+
+        <div
+            class="footer-divider"
+            aria-hidden="true"
+        ></div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         COPYRIGHT
+    ================================================== -->
+
+    <div class="copyright">
 
         <div class="container">
 
-            <div class="footer-divider"></div>
+            <p>
+                © 2026 Blue Harbor Dispatch.
+                All Rights Reserved.
+            </p>
 
         </div>
 
+    </div>
 
-
-        <!-- Copyright -->
-
-        <div class="copyright">
-
-            <div class="container">
-
-                <p>
-                    © 2026 Blue Harbor Dispatch.
-                    All Rights Reserved.
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
+</footer>
 
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
 
-    <!-- Main Website JS -->
-
-    <script src="script.js"></script>
-
-
-    <!-- Interactive Hero JS -->
-
-    <script src="hero.js"></script>
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 
-    <!-- AOS Animation Library -->
+<!-- Main Website JavaScript -->
+<script src="script.js"></script>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Interactive Hero JavaScript -->
+<script src="hero.js"></script>
 
 
-    <!-- AOS Initialization -->
+<!-- =====================================================
+     AOS INITIALIZATION
+====================================================== -->
 
-    <script>
+<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
+
+        if (typeof AOS !== "undefined") {
 
             AOS.init({
 
@@ -2306,16 +2554,20 @@
                 mirror: false,
 
                 disable: function () {
+
                     return window.matchMedia(
                         "(prefers-reduced-motion: reduce)"
                     ).matches;
+
                 }
 
             });
 
-        });
+        }
 
-    </script>
+    });
+
+</script>
 
 
 </body>
