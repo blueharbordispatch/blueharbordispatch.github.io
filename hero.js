@@ -21,7 +21,7 @@
     1,
     2000
   );
-  camera.position.set(0, 0, 430);
+  camera.position.set(0, 0, 390);
 
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -189,7 +189,21 @@
   });
 
   // Bright amber outline for the USA — the star of the globe
-  addDotOutline(usaOutline, 4, 5, dotTextureAmber, 1.015);
+  addDotOutline(usaOutline, 10, 4.5, dotTextureAmber, 1.015);
+
+  // Connecting line so the USA reads as a shape, not a scatter of dots
+  (function addUsaOutlineLine() {
+    const pts = usaOutline.map(([lat, lon]) =>
+      toVector3(lat, lon, RADIUS * 1.012)
+    );
+    const geo = new THREE.BufferGeometry().setFromPoints(pts);
+    const mat = new THREE.LineBasicMaterial({
+      color: 0xf4a300,
+      transparent: true,
+      opacity: 0.55
+    });
+    globeGroup.add(new THREE.LineLoop(geo, mat));
+  })();
 
   /* ---------------- Hub cities + animated truck routes ---------------- */
 
