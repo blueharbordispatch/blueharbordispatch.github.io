@@ -9,6 +9,10 @@
   const container = document.getElementById("hero-globe");
   if (!container || typeof THREE === "undefined") return;
 
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
   /* ---------------- Basic scene setup ---------------- */
 
   const RADIUS = 150;
@@ -23,11 +27,15 @@
   );
   camera.position.set(0, 0, 390);
 
+  const isSmallScreen = window.innerWidth < 700;
+
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, isSmallScreen ? 1.5 : 2)
+  );
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
@@ -410,12 +418,36 @@
 
   window.addEventListener("resize", handleResize);
 
+  /* ---------------- Visibility-based pause (perf) ---------------- */
+
+  let isVisible = true;
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+        });
+      },
+      { threshold: 0 }
+    );
+    io.observe(container);
+  }
+
+  let isTabVisible = !document.hidden;
+
+  document.addEventListener("visibilitychange", () => {
+    isTabVisible = !document.hidden;
+  });
+
   /* ---------------- Animate ---------------- */
 
   function animate() {
     requestAnimationFrame(animate);
 
-    if (autoRotate && !isDragging) {
+    if (!isVisible || !isTabVisible) return;
+
+    if (autoRotate && !isDragging && !prefersReducedMotion) {
       globeGroup.rotation.y += 0.0012;
     } else if (!isDragging) {
       globeGroup.rotation.y += velocityX;
@@ -424,13 +456,15 @@
       velocityY *= 0.94;
     }
 
-    trucks.forEach((truck) => {
-      truck.t += truck.speed;
-      if (truck.t > 1) truck.t = 0;
+    if (!prefersReducedMotion) {
+      trucks.forEach((truck) => {
+        truck.t += truck.speed;
+        if (truck.t > 1) truck.t = 0;
 
-      const pos = truck.curve.getPoint(truck.t);
-      truck.sprite.position.copy(pos);
-    });
+        const pos = truck.curve.getPoint(truck.t);
+        truck.sprite.position.copy(pos);
+      });
+    }
 
     renderer.render(scene, camera);
   }

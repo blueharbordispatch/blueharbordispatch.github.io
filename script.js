@@ -183,16 +183,20 @@ document.querySelectorAll(".faq-question").forEach(button => {
     button.addEventListener("click", () => {
 
         const item = button.parentElement;
+        const isOpening = !item.classList.contains("active");
 
         document.querySelectorAll(".faq-item").forEach(faq => {
 
             if (faq !== item) {
                 faq.classList.remove("active");
+                const otherBtn = faq.querySelector(".faq-question");
+                if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
             }
 
         });
 
-        item.classList.toggle("active");
+        item.classList.toggle("active", isOpening);
+        button.setAttribute("aria-expanded", isOpening ? "true" : "false");
 
     });
 
